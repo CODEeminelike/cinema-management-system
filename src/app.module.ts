@@ -1,12 +1,15 @@
 import { Module } from '@nestjs/common';
-
-
+import { ConfigModule } from '@nestjs/config';
 import { ApiModule } from 'api/api.module';
-import { SharedModule } from 'shared/shared.module';
-import { SysModule } from 'sys/sys.module';
 
 @Module({
-  imports: [ApiModule,SharedModule,SysModule],
+  imports: [
+    ConfigModule.forRoot({
+      envFilePath: '.env',
+      isGlobal: true, // Làm ConfigModule toàn cục
+    }),
+    ApiModule,
+  ],
   controllers: [],
   providers: [],
 })

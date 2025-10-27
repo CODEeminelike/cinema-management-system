@@ -108,25 +108,46 @@ movie-capstone
 │  └─ schema.prisma
 ├─ README.md
 ├─ src
+│  ├─ admin
+│  │  ├─ bookings
+│  │  ├─ movies
+│  │  ├─ theaters
+│  │  └─ users
 │  ├─ api
+│  │  ├─ api.controller.ts
 │  │  ├─ api.module.ts
-│  │  └─ user
-│  │     ├─ users.controller.ts
-│  │     ├─ users.module.ts
-│  │     └─ users.service.ts
+│  │  ├─ bookings
+│  │  ├─ movies
+│  │  ├─ theaters
+│  │  │  ├─ rap.service.ts
+│  │  │  ├─ theater.controller.ts
+│  │  │  └─ theater.module.ts
+│  │  └─ users
+│  │     ├─ dto
+│  │     │  ├─ create-user.dto.ts
+│  │     │  └─ login.dto.ts
+│  │     ├─ user.controller.ts
+│  │     ├─ user.module.ts
+│  │     └─ user.service.ts
 │  ├─ app.module.ts
 │  ├─ main.ts
 │  ├─ shared
+│  │  ├─ auth
+│  │  │  └─ auth.service.ts
 │  │  ├─ constant
 │  │  │  └─ app.constant.ts
 │  │  ├─ filters
-│  │  │  └─ http-exception.filter.ts
+│  │  │  ├─ http-exception.filter.ts
+│  │  │  └─ status-code.helper.ts
 │  │  ├─ guards
 │  │  ├─ interceptors
+│  │  │  └─ response.interceptor.ts
 │  │  ├─ pipes
+│  │  │  └─ user-validation.pipe.ts
 │  │  └─ shared.module.ts
 │  └─ sys
 │     ├─ config
+│     │  └─ config.service.ts
 │     ├─ prisma
 │     │  ├─ prisma.module.ts
 │     │  └─ prisma.service.ts

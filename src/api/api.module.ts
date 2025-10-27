@@ -1,8 +1,11 @@
 import { Module } from '@nestjs/common';
-import { UsersModule } from './user/users.module';
+import { ApiController } from './api.controller';
+import { TheaterModule } from './theaters/theater.module';
+import { UsersModule } from './users/user.module';
 
 @Module({
-    imports: [UsersModule],
-    exports:  [UsersModule]
+  imports: [TheaterModule, UsersModule],
+  controllers: [ApiController],
+  exports: [],
 })
-export class ApiModule{}
+export class ApiModule {}
