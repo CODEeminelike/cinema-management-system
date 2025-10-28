@@ -17,7 +17,9 @@ import { RefreshTokenDto } from './dto/refresh-token.dto';
 import { UsersService } from './user.service';
 import { JwtAuthGuard } from 'shared/guards/auth/jwt-auth.guard';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('QUẢN LÍ NGƯỜI DÙNG')
 @Controller('QuanLyNguoiDung')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
