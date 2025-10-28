@@ -5,6 +5,7 @@ import {
   IsNotEmpty,
   MinLength,
   IsEnum,
+  Matches,
 } from 'class-validator';
 
 export class CreateAdminDto {
@@ -22,6 +23,13 @@ export class CreateAdminDto {
   @IsString()
   @IsNotEmpty()
   @MinLength(6)
+  @Matches(
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/,
+    {
+      message:
+        'Mật khẩu phải chứa ít nhất một chữ hoa, một chữ thường, một số và một ký tự đặc biệt',
+    },
+  )
   mat_khau!: string;
 
   @IsEnum(['ADMIN', 'USER'])

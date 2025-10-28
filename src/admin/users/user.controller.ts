@@ -1,27 +1,65 @@
 // src/admin/users/users.controller.ts
-import { Controller, Post, Body, UseGuards, Get } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Body,
+  UseGuards,
+  Get,
+  UseInterceptors,
+  Query,
+} from '@nestjs/common';
 import { UsersService } from './user.service';
 import { CreateAdminDto } from './dto/create-admin.dto';
 import { JwtAuthGuard } from '../../shared/guards/auth/jwt-auth.guard';
 import { RolesGuard } from '../../shared/guards/roles/roles.guard';
 import { Roles } from '../../shared/guards/roles/roles.decorator';
 import { retry } from 'rxjs';
+import { TokenCookieInterceptor } from 'shared/interceptors/token-cookie.interceptor';
+import { PaginationDto } from './dto/pagination.dto';
+import { SearchUserDto } from './dto/search-user.dto';
+import { SearchNoPagDto } from './dto/search-no-pag.dto';
 
-@Controller('QuanLyNguoiDung') // Base route: /QuanLyNguoiDung
+@Controller('QuanLyNguoiDung')
+@Roles('ADMIN')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Post('ThemNguoiDung')
-  //   @UseGuards(JwtAuthGuard, RolesGuard) // Áp dụng xác thực JWT và kiểm tra role
-  //   @Roles('ADMIN')
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @UseInterceptors(TokenCookieInterceptor)
   async addAccount(@Body() createAdminDto: CreateAdminDto) {
     return this.usersService.addAccount(createAdminDto);
   }
 
-  @Get('test')
-  async test() {
-    return {
-      data: 'success-test',
-    };
+  @Get('LayDanhSachLoaiNguoiDung')
+  async getUserTypes() {
+    return this.usersService.getUserTypes();
+  }
+
+  @Get('LayDanhSachNguoiDung')
+  async getUserList() {
+    return this.usersService.getUserList();
+  }
+
+  @Get('LayDanhSachNguoiDungPhanTrang')
+  async getUserListPaginated(@Query() paginationDto: PaginationDto) {
+    return this.usersService.getUserListPaginated(
+      paginationDto.page,
+      paginationDto.pageSize,
+    );
+  }
+
+  @Get('TimKiemNguoiDungPhanTrang')
+  async searchUsers(@Query() searchUserDto: SearchUserDto) {
+    return this.usersService.searchUsers(
+      searchUserDto.keyword,
+      searchUserDto.page,
+      searchUserDto.pageSize,
+    );
+  }
+
+  @Get('TimKiemNguoiDung')
+  async searchUsersNoPag(@Query() searchNoPagDto: SearchNoPagDto) {
+    return this.usersService.searchUsersNoPag(searchNoPagDto.keyword);
   }
 }

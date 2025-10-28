@@ -4,6 +4,7 @@ import {
   InternalServerErrorException,
   UnauthorizedException,
   NotFoundException,
+  BadRequestException,
 } from '@nestjs/common';
 import { PrismaService } from 'sys/prisma/prisma.service';
 import { TokenService } from 'sys/token/token.service';
@@ -271,20 +272,36 @@ export class UsersService {
     }
   }
 
-  async getProfile(user: any): Promise<UserResponse> {
-    if (!user) {
-      throw new UnauthorizedException('Không tìm thấy thông tin tài khoản');
+  async getProfile(userId: number): Promise<UserResponse> {
+    if (!userId || isNaN(userId)) {
+      throw new BadRequestException('UserId phải là số nguyên hợp lệ.');
     }
 
-    const userResponse: UserResponse = {
+    const user = await this.prisma.nguoiDung.findUnique({
+      where: { tai_khoan: userId },
+      select: {
+        tai_khoan: true,
+        ho_ten: true,
+        email: true,
+        so_dt: true,
+        loai_nguoi_dung: true,
+      },
+    });
+
+    if (!user) {
+      throw new NotFoundException(
+        'Không tìm thấy người dùng với userId cung cấp.',
+      );
+    }
+
+    // Trả về UserResponse với các trường không nhạy cảm
+    return {
       tai_khoan: user.tai_khoan,
       ho_ten: user.ho_ten,
       email: user.email,
       so_dt: user.so_dt,
       loai_nguoi_dung: user.loai_nguoi_dung,
     };
-
-    return userResponse;
   }
 
   async updateProfile(
