@@ -8,9 +8,9 @@ import { plainToInstance } from 'class-transformer';
 import { validate } from 'class-validator';
 
 @Injectable()
-export class UserValidationPipe implements PipeTransform {
+export class ValidationPipe implements PipeTransform {
   async transform(value: any, metadata: ArgumentMetadata) {
-    const { metatype } = metadata; // Lấy metatype từ decorator (e.g., UpdateUserDto)
+    const { metatype } = metadata; // Lấy loại DTO từ decorator (ví dụ: UpdateUserDto)
     if (!metatype || !this.toValidate(metatype)) {
       return value; // Không validate nếu không phải class
     }
@@ -20,7 +20,10 @@ export class UserValidationPipe implements PipeTransform {
       const messages = errors
         .map((err) => Object.values(err.constraints || {}))
         .flat();
-      throw new BadRequestException(['Invalid input', ...messages]);
+      throw new BadRequestException([
+        'Dữ liệu đầu vào không hợp lệ',
+        ...messages,
+      ]);
     }
     return object;
   }

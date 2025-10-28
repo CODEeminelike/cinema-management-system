@@ -92,7 +92,7 @@ model LichChieu {
 
 model RefreshToken {
   id          String    @id @default(cuid())
-  userId      Int
+  userId      Int       @unique
   expiresAt   DateTime
   createdAt   DateTime  @default(now()) @db.DateTime(0)
   updatedAt   DateTime  @updatedAt @db.DateTime(0)

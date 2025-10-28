@@ -72,9 +72,16 @@ export class UsersService {
 
   async login(loginDto: LoginDto): Promise<LoginResponse> {
     const { email, mat_khau } = loginDto;
-
     const user = await this.prisma.nguoiDung.findUnique({
       where: { email },
+      select: {
+        tai_khoan: true,
+        ho_ten: true,
+        email: true,
+        so_dt: true,
+        loai_nguoi_dung: true,
+        mat_khau: true,
+      },
     });
 
     if (!user || !(await bcrypt.compare(mat_khau, user.mat_khau))) {
@@ -160,35 +167,46 @@ export class UsersService {
   }
 
   private async generateTokens(user: any): Promise<LoginResponse> {
-    // Xóa tất cả refresh token cũ của người dùng (nếu tồn tại)
-    await this.prisma.refreshToken.deleteMany({
-      where: { userId: user.tai_khoan },
-    });
-
     // Tạo token mới
     const { accessToken, refreshToken } = this.tokenService.createTokens(
       user.tai_khoan,
     );
 
-    // Tính thời gian hết hạn của refresh token (7 ngày mặc định)
-    const expiresIn = '7d'; // Giá trị mặc định từ TokenService
-    const expiresAt = new Date();
-    expiresAt.setDate(expiresAt.getDate() + 7);
-
-    // Băm refresh token trước khi lưu
+    // Mã hóa refresh token
     const hashedToken = crypto
       .createHash('sha256')
       .update(refreshToken)
       .digest('hex');
 
-    // Lưu refresh token mới vào cơ sở dữ liệu
-    await this.prisma.refreshToken.create({
-      data: {
-        userId: user.tai_khoan,
-        hashedToken,
-        expiresAt,
-      },
+    // Tính thời gian hết hạn (7 ngày)
+    const expiresAt = new Date();
+    expiresAt.setDate(expiresAt.getDate() + 7);
+
+    // Tìm refresh token hiện tại của người dùng
+    const existingToken = await this.prisma.refreshToken.findFirst({
+      where: { userId: user.tai_khoan },
     });
+
+    if (existingToken) {
+      // Cập nhật refresh token hiện có
+      await this.prisma.refreshToken.update({
+        where: { id: existingToken.id }, // Sử dụng id làm trường duy nhất
+        data: {
+          hashedToken,
+          expiresAt,
+          deletedAt: null,
+        },
+      });
+    } else {
+      // Tạo mới refresh token
+      await this.prisma.refreshToken.create({
+        data: {
+          userId: user.tai_khoan,
+          hashedToken,
+          expiresAt,
+        },
+      });
+    }
 
     const userResponse: UserResponse = {
       tai_khoan: user.tai_khoan,
@@ -199,7 +217,7 @@ export class UsersService {
     };
 
     return {
-      message: 'Đăng ký/Đăng nhập thành công',
+      message: 'Đăng nhập thành công',
       data: {
         user: userResponse,
         accessToken,
@@ -249,5 +267,34 @@ export class UsersService {
         'Refresh token không hợp lệ hoặc đã hết hạn',
       );
     }
+  }
+
+  async getProfile(tai_khoan: number): Promise<UserResponse> {
+    const user = await this.prisma.nguoiDung.findUnique({
+      where: {
+        tai_khoan: tai_khoan,
+      },
+      select: {
+        tai_khoan: true,
+        ho_ten: true,
+        email: true,
+        so_dt: true,
+        loai_nguoi_dung: true,
+      },
+    });
+
+    if (!user) {
+      throw new UnauthorizedException('Không tìm thấy thông tin tài khoản');
+    }
+
+    const userResponse: UserResponse = {
+      tai_khoan: user.tai_khoan,
+      ho_ten: user.ho_ten,
+      email: user.email,
+      so_dt: user.so_dt,
+      loai_nguoi_dung: user.loai_nguoi_dung,
+    };
+
+    return userResponse;
   }
 }

@@ -119,42 +119,54 @@ movie-capstone
 │  │  ├─ bookings
 │  │  ├─ movies
 │  │  ├─ theaters
-│  │  │  ├─ rap.service.ts
 │  │  │  ├─ theater.controller.ts
-│  │  │  └─ theater.module.ts
+│  │  │  ├─ theater.module.ts
+│  │  │  └─ theater.service.ts
 │  │  └─ users
 │  │     ├─ dto
 │  │     │  ├─ create-user.dto.ts
-│  │     │  └─ login.dto.ts
+│  │     │  ├─ login.dto.ts
+│  │     │  └─ refresh-token.dto.ts
 │  │     ├─ user.controller.ts
 │  │     ├─ user.module.ts
 │  │     └─ user.service.ts
 │  ├─ app.module.ts
 │  ├─ main.ts
 │  ├─ shared
-│  │  ├─ auth
-│  │  │  └─ auth.service.ts
 │  │  ├─ constant
 │  │  │  └─ app.constant.ts
 │  │  ├─ filters
 │  │  │  ├─ http-exception.filter.ts
 │  │  │  └─ status-code.helper.ts
 │  │  ├─ guards
+│  │  │  ├─ auth
+│  │  │  │  ├─ auth.module.ts
+│  │  │  │  ├─ jwt-auth.guard.ts
+│  │  │  │  └─ jwt.strategy.ts
+│  │  │  └─ roles
+│  │  │     ├─ roles.decorator.ts
+│  │  │     ├─ roles.guard.ts
+│  │  │     └─ roles.module.ts
 │  │  ├─ interceptors
+│  │  │  ├─ logging.interceptor.ts
 │  │  │  └─ response.interceptor.ts
-│  │  ├─ pipes
-│  │  │  └─ user-validation.pipe.ts
-│  │  └─ shared.module.ts
+│  │  └─ pipes
+│  │     ├─ login-validation.pipe.ts
+│  │     ├─ refresh-validation.pipe.ts
+│  │     └─ user-validation.pipe.ts
 │  └─ sys
 │     ├─ config
 │     │  └─ config.service.ts
 │     ├─ prisma
 │     │  ├─ prisma.module.ts
 │     │  └─ prisma.service.ts
-│     └─ sys.module.ts
+│     └─ token
+│        ├─ token.mudule.ts
+│        └─ token.service.ts
 ├─ test
 │  ├─ app.e2e-spec.ts
 │  └─ jest-e2e.json
+├─ test.js
 ├─ tsconfig.build.json
 ├─ tsconfig.build.tsbuildinfo
 └─ tsconfig.json

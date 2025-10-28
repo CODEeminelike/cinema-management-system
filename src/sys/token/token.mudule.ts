@@ -6,7 +6,7 @@ import { TokenService } from './token.service';
 @Module({
   imports: [
     ConfigModule.forRoot(), // Load .env file
-    JwtModule.register({}), 
+    JwtModule.register({}),
   ],
   providers: [TokenService],
   exports: [TokenService],
