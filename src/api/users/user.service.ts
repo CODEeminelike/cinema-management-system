@@ -3,6 +3,7 @@ import {
   ConflictException,
   InternalServerErrorException,
   UnauthorizedException,
+  NotFoundException,
 } from '@nestjs/common';
 import { PrismaService } from 'sys/prisma/prisma.service';
 import { TokenService } from 'sys/token/token.service';
@@ -10,6 +11,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { LoginDto } from './dto/login.dto';
 import * as bcrypt from 'bcrypt';
 import * as crypto from 'crypto';
+import { UpdateUserDto } from './dto/update-user.dto';
 
 interface UserResponse {
   tai_khoan: number;
@@ -269,20 +271,7 @@ export class UsersService {
     }
   }
 
-  async getProfile(tai_khoan: number): Promise<UserResponse> {
-    const user = await this.prisma.nguoiDung.findUnique({
-      where: {
-        tai_khoan: tai_khoan,
-      },
-      select: {
-        tai_khoan: true,
-        ho_ten: true,
-        email: true,
-        so_dt: true,
-        loai_nguoi_dung: true,
-      },
-    });
-
+  async getProfile(user: any): Promise<UserResponse> {
     if (!user) {
       throw new UnauthorizedException('Không tìm thấy thông tin tài khoản');
     }
@@ -296,5 +285,61 @@ export class UsersService {
     };
 
     return userResponse;
+  }
+
+  async updateProfile(
+    updateUserDto: UpdateUserDto,
+    userId: number,
+  ): Promise<UserResponse> {
+    // Tìm người dùng hiện tại
+    const existingUser = await this.prisma.nguoiDung.findUnique({
+      where: { tai_khoan: userId },
+      select: {
+        tai_khoan: true,
+        ho_ten: true,
+        email: true,
+        so_dt: true,
+        loai_nguoi_dung: true,
+      },
+    });
+
+    if (!existingUser) {
+      throw new NotFoundException('Không tìm thấy người dùng');
+    }
+
+    // Kiểm tra xung đột email nếu được cập nhật
+    if (updateUserDto.email && updateUserDto.email !== existingUser.email) {
+      const emailConflict = await this.prisma.nguoiDung.findUnique({
+        where: { email: updateUserDto.email },
+      });
+      if (emailConflict) {
+        throw new ConflictException('Email đã được sử dụng');
+      }
+    }
+
+    // Cập nhật dữ liệu (partial update)
+    const updatedUser = await this.prisma.nguoiDung.update({
+      where: { tai_khoan: userId },
+      data: {
+        ho_ten: updateUserDto.ho_ten ?? existingUser.ho_ten,
+        email: updateUserDto.email ?? existingUser.email,
+        so_dt: updateUserDto.so_dt ?? existingUser.so_dt,
+        // Không cập nhật loai_nguoi_dung hoặc mat_khau ở đây
+      },
+      select: {
+        tai_khoan: true,
+        ho_ten: true,
+        email: true,
+        so_dt: true,
+        loai_nguoi_dung: true,
+      },
+    });
+    return {
+      tai_khoan: updatedUser.tai_khoan,
+      ho_ten: updatedUser.ho_ten,
+      email: updatedUser.email,
+      so_dt: updatedUser.so_dt,
+      loai_nguoi_dung: updatedUser.loai_nguoi_dung,
+    };
   }
 }

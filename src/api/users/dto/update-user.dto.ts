@@ -16,6 +16,6 @@ export class UpdateUserDto {
   email?: string;
 
   @IsOptional()
-  @IsString({ message: 'Số điện thoại phải là chuỗi' })
+  @IsString({ message: 'Số điện thoại phải là chuỗi số' })
   so_dt?: string;
 }

@@ -8,7 +8,7 @@ import { plainToInstance } from 'class-transformer';
 import { validate } from 'class-validator';
 
 @Injectable()
-export class ValidationPipe implements PipeTransform {
+export class CustomValidationPipe implements PipeTransform {
   async transform(value: any, metadata: ArgumentMetadata) {
     const { metatype } = metadata; // Lấy loại DTO từ decorator (ví dụ: UpdateUserDto)
     if (!metatype || !this.toValidate(metatype)) {
@@ -20,6 +20,7 @@ export class ValidationPipe implements PipeTransform {
       const messages = errors
         .map((err) => Object.values(err.constraints || {}))
         .flat();
+      console.log(messages);
       throw new BadRequestException([
         'Dữ liệu đầu vào không hợp lệ',
         ...messages,
