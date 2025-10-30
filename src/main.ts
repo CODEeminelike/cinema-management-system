@@ -37,10 +37,11 @@ async function bootstrap() {
   });
 
   // Swagger configuration - ĐẶT TRƯỚC global prefix
+  // Swagger configuration
   const config = new DocumentBuilder()
     .setTitle('Movie API')
     .setDescription('API documentation for Movie application')
-    .setVersion('1.0')
+    .setVersion('2.0')
     .addBearerAuth()
     .build();
 
@@ -53,6 +54,7 @@ async function bootstrap() {
     swaggerOptions: {
       persistAuthorization: true,
     },
+    // XÓA customJs và customCssUrl để dùng resources mặc định
   });
 
   // Dynamic port for Vercel
