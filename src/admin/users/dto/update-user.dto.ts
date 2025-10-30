@@ -1,4 +1,4 @@
-import { UpdateUserDto } from 'api/users/dto/update-user.dto';
+import { UpdateUserDto } from '../../../api/users/dto/update-user.dto';
 import {
   IsOptional,
   IsString,

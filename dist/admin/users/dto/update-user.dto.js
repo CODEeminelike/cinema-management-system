@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UpdateAdminUserDto = void 0;
-const update_user_dto_1 = require("api/users/dto/update-user.dto");
+const update_user_dto_1 = require("../../../api/users/dto/update-user.dto");
 const class_validator_1 = require("class-validator");
 var UserType;
 (function (UserType) {
