@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common';
-import { TheaterController } from './theater.controller';
 import { GuardModule } from 'shared/guards/guard.module';
 import { PrismaModule } from 'sys/prisma/prisma.module';
-import { TheaterService } from './theater.service';
+import { MovieService } from './movie.service';
+import { MovieController } from './movie.controller';
 
 @Module({
   imports: [GuardModule, PrismaModule],
-  controllers: [TheaterController],
+  controllers: [MovieController],
   exports: [],
-  providers: [TheaterService],
+  providers: [MovieService],
 })
-export class TheaterModule {}
+export class MovieModule {}

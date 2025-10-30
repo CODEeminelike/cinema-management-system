@@ -26,16 +26,16 @@ async function bootstrap() {
   app.useGlobalInterceptors(new ResponseInterceptor());
   app.useGlobalInterceptors(new LoggingInterceptor(app.get(ConfigService)));
 
-  // //  Swagger configuration
-  // const config = new DocumentBuilder()
-  //   .setTitle('Movie API')
-  //   .setDescription('API documentation for Movie application')
-  //   .setVersion('1.0')
-  //   .addBearerAuth() // Thêm nếu dùng JWT
-  //   .build();
+  //  Swagger configuration
+  const config = new DocumentBuilder()
+    .setTitle('Movie API')
+    .setDescription('API documentation for Movie application')
+    .setVersion('1.0')
+    .addBearerAuth() // Thêm nếu dùng JWT
+    .build();
 
-  // const document = SwaggerModule.createDocument(app, config);
-  // SwaggerModule.setup('api', app, document);
+  const document = SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('api', app, document);
 
   await app.listen(APP_CONSTANTS.PORT);
   console.log(

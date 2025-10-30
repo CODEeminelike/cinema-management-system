@@ -1,11 +1,13 @@
 import { Module } from '@nestjs/common';
-import { ApiController } from './api.controller';
+
 import { TheaterModule } from './theaters/theater.module';
 import { UsersModule } from './users/user.module';
+import { MovieModule } from './movies/movie.module';
+import { BookingsModule } from './bookings/booking.module';
 
 @Module({
-  imports: [TheaterModule, UsersModule],
-  controllers: [ApiController],
+  imports: [TheaterModule, UsersModule, MovieModule, BookingsModule],
+  controllers: [],
   exports: [],
 })
 export class ApiModule {}

@@ -20,8 +20,7 @@ import { JwtAuthGuard } from 'shared/guards/auth/jwt-auth.guard';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { ApiTags } from '@nestjs/swagger';
 import { TokenCookieInterceptor } from 'shared/interceptors/token-cookie.interceptor';
-
-@ApiTags('QUẢN LÍ NGƯỜI DÙNG')
+@ApiTags('QuanLyNguoiDung')
 @Controller('QuanLyNguoiDung')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
@@ -60,7 +59,7 @@ export class UsersController {
     return this.usersService.getProfile(userId);
   }
 
-  @Post('CapNhatThongTinNguoiDung')
+  @Put('CapNhatThongTinNguoiDung')
   @UseGuards(JwtAuthGuard)
   async updateProfile(
     @Body() updateUserDto: UpdateUserDto,

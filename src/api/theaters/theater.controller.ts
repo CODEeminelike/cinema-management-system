@@ -1,21 +1,22 @@
-import { Controller, Get, Post, UseGuards } from '@nestjs/common';
+import { Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { APP_CONSTANTS } from 'shared/constant/app.constant';
 import { JwtAuthGuard } from 'shared/guards/auth/jwt-auth.guard';
 import { Roles } from 'shared/guards/roles/roles.decorator';
 import { RolesGuard } from 'shared/guards/roles/roles.guard';
+import { TheaterService } from './theater.service';
 
-@ApiTags('QUẢN LÍ RẠP')
+@ApiTags('QuanLyRap')
 @Controller('QuanLyRap')
 export class TheaterController {
-  @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('ADMIN')
+  constructor(private readonly theaterService: TheaterService) {}
   @Get('LayThongTinHeThongRap')
   getCinemaSystems() {
-    return 'LayThongTinHeThongRap';
+    return this.theaterService.getCinemaSystems();
   }
-  @Post('LayThongTinHeThongRap2')
-  getCinemaSystems2() {
-    return 'LayThongTinHeThongRap22';
+
+  @Get('LayThongTinCumRapTheoHeThong/:maHeThong') // Đổi thành GET với path param
+  getCinemaClustersBySystem(@Param('maHeThong') maHeThong: string) {
+    return this.theaterService.getCinemaClustersBySystem(maHeThong);
   }
 }

@@ -7,6 +7,10 @@ import {
   Get,
   UseInterceptors,
   Query,
+  Put,
+  Patch,
+  Param,
+  Delete,
 } from '@nestjs/common';
 import { UsersService } from './user.service';
 import { CreateAdminDto } from './dto/create-admin.dto';
@@ -18,14 +22,16 @@ import { TokenCookieInterceptor } from 'shared/interceptors/token-cookie.interce
 import { PaginationDto } from './dto/pagination.dto';
 import { SearchUserDto } from './dto/search-user.dto';
 import { SearchNoPagDto } from './dto/search-no-pag.dto';
-
+import { UpdateAdminUserDto } from './dto/update-user.dto';
+import { ApiTags } from '@nestjs/swagger';
+@ApiTags('QuanLyNguoiDung')
 @Controller('QuanLyNguoiDung')
+@UseGuards(JwtAuthGuard, RolesGuard)
 @Roles('ADMIN')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Post('ThemNguoiDung')
-  @UseGuards(JwtAuthGuard, RolesGuard)
   @UseInterceptors(TokenCookieInterceptor)
   async addAccount(@Body() createAdminDto: CreateAdminDto) {
     return this.usersService.addAccount(createAdminDto);
@@ -61,5 +67,18 @@ export class UsersController {
   @Get('TimKiemNguoiDung')
   async searchUsersNoPag(@Query() searchNoPagDto: SearchNoPagDto) {
     return this.usersService.searchUsersNoPag(searchNoPagDto.keyword);
+  }
+
+  @Patch('CapNhatThongTinNguoiDung/:tai_khoan')
+  async adminUpdateUser(
+    @Param('tai_khoan') tai_khoan: number,
+    @Body() updateAdminUserDto: UpdateAdminUserDto,
+  ) {
+    return this.usersService.adminUpdateUser(tai_khoan, updateAdminUserDto);
+  }
+
+  @Delete('XoaNguoiDung/:tai_khoan')
+  async adminDeleteUser(@Param('tai_khoan') tai_khoan: number) {
+    return this.usersService.adminDeleteUser(tai_khoan);
   }
 }

@@ -92,7 +92,7 @@ model LichChieu {
 
 model RefreshToken {
   id          String    @id @default(cuid())
-  userId      Int       @unique
+  userId      Int
   expiresAt   DateTime
   createdAt   DateTime  @default(now()) @db.DateTime(0)
   updatedAt   DateTime  @updatedAt @db.DateTime(0)
@@ -123,7 +123,7 @@ model Phim {
   ten_phim        String      @db.VarChar(255)
   trailer         String?     @db.VarChar(255)
   hinh_anh        String?     @db.VarChar(255)
-  mo_ta           String?     @db.VarChar(500)
+  mo_ta           String?     @db.VarChar(2000)
   ngay_khoi_chieu DateTime?   @db.Date
   danh_gia        Int?
   hot             Boolean?    @default(false)
