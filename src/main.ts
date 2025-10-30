@@ -36,7 +36,6 @@ async function bootstrap() {
     credentials: true,
   });
 
-  // Swagger configuration - ĐẶT TRƯỚC global prefix
   // Swagger configuration
   const config = new DocumentBuilder()
     .setTitle('Movie API')
@@ -47,17 +46,23 @@ async function bootstrap() {
 
   const document = SwaggerModule.createDocument(app, config);
 
-  // Swagger path - dùng '/' thay vì 'api' trên production
-  const swaggerPath = process.env.NODE_ENV === 'production' ? '' : 'api';
+  // Swagger path - Sử dụng 'docs' cho production để tránh xung đột với các route API
+  const swaggerPath = process.env.NODE_ENV === 'production' ? 'docs' : 'api';
+
   SwaggerModule.setup(swaggerPath, app, document, {
     customSiteTitle: 'Movie API Documentation',
     swaggerOptions: {
       persistAuthorization: true,
     },
-    customCss: `
-    .swagger-ui .topbar { display: none }
-    .swagger-ui .information-container { display: none }
-  `,
+    customJs: [
+      'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-bundle.min.js',
+      'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-standalone-preset.min.js',
+    ],
+    customCssUrl: [
+      'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.min.css',
+      'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-standalone-preset.min.css',
+      'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.css',
+    ],
   });
 
   // Dynamic port for Vercel
