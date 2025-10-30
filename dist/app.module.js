@@ -9,9 +9,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const config_1 = require("@nestjs/config");
-const admin_module_1 = require("admin/admin.module");
-const api_module_1 = require("api/api.module");
-const cloudinary_module_1 = require("sys/cloudinary/cloudinary.module");
+const admin_module_1 = require("./admin/admin.module");
+const api_module_1 = require("./api/api.module");
+const cloudinary_module_1 = require("./sys/cloudinary/cloudinary.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;

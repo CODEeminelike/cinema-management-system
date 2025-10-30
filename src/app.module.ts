@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { AdminModule } from 'admin/admin.module';
-import { ApiModule } from 'api/api.module';
-import { CloudinaryModule } from 'sys/cloudinary/cloudinary.module';
+import { AdminModule } from './admin/admin.module';
+import { ApiModule } from './api/api.module';
+import { CloudinaryModule } from './sys/cloudinary/cloudinary.module';
 
 @Module({
   imports: [
