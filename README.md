@@ -109,15 +109,48 @@ movie-capstone
 ├─ README.md
 ├─ src
 │  ├─ admin
+│  │  ├─ admin.module.ts
 │  │  ├─ bookings
+│  │  │  ├─ booking.controller.ts
+│  │  │  ├─ booking.module.ts
+│  │  │  ├─ booking.service.ts
+│  │  │  └─ dto
+│  │  │     └─ create-showtime.dto.ts
 │  │  ├─ movies
+│  │  │  ├─ dto
+│  │  │  │  ├─ create-movie.dto.ts
+│  │  │  │  ├─ delete-movie.dto.ts
+│  │  │  │  └─ update-movie.dto.ts
+│  │  │  ├─ movie.controller.ts
+│  │  │  ├─ movie.module.ts
+│  │  │  └─ movie.service.ts
 │  │  ├─ theaters
 │  │  └─ users
+│  │     ├─ dto
+│  │     │  ├─ create-admin.dto.ts
+│  │     │  ├─ pagination.dto.ts
+│  │     │  ├─ search-no-pag.dto.ts
+│  │     │  ├─ search-user.dto.ts
+│  │     │  └─ update-user.dto.ts
+│  │     ├─ user.controller.ts
+│  │     ├─ user.module.ts
+│  │     └─ user.service.ts
 │  ├─ api
-│  │  ├─ api.controller.ts
 │  │  ├─ api.module.ts
 │  │  ├─ bookings
+│  │  │  ├─ booking.controller.ts
+│  │  │  ├─ booking.module.ts
+│  │  │  ├─ booking.service.ts
+│  │  │  └─ dto
+│  │  │     └─ create-booking.dto.ts
 │  │  ├─ movies
+│  │  │  ├─ dto
+│  │  │  │  ├─ get-movie-list.dto.ts
+│  │  │  │  ├─ get-movies-by-date.dto.ts
+│  │  │  │  └─ get-movies.dto.ts
+│  │  │  ├─ movie.controller.ts
+│  │  │  ├─ movie.module.ts
+│  │  │  └─ movie.service.ts
 │  │  ├─ theaters
 │  │  │  ├─ theater.controller.ts
 │  │  │  ├─ theater.module.ts
@@ -126,7 +159,8 @@ movie-capstone
 │  │     ├─ dto
 │  │     │  ├─ create-user.dto.ts
 │  │     │  ├─ login.dto.ts
-│  │     │  └─ refresh-token.dto.ts
+│  │     │  ├─ refresh-token.dto.ts
+│  │     │  └─ update-user.dto.ts
 │  │     ├─ user.controller.ts
 │  │     ├─ user.module.ts
 │  │     └─ user.service.ts
@@ -143,18 +177,27 @@ movie-capstone
 │  │  │  │  ├─ auth.module.ts
 │  │  │  │  ├─ jwt-auth.guard.ts
 │  │  │  │  └─ jwt.strategy.ts
+│  │  │  ├─ guard.module.ts
 │  │  │  └─ roles
 │  │  │     ├─ roles.decorator.ts
 │  │  │     ├─ roles.guard.ts
 │  │  │     └─ roles.module.ts
 │  │  ├─ interceptors
+│  │  │  ├─ cloudinary-upload.interceptor.ts
 │  │  │  ├─ logging.interceptor.ts
-│  │  │  └─ response.interceptor.ts
-│  │  └─ pipes
-│  │     ├─ login-validation.pipe.ts
-│  │     ├─ refresh-validation.pipe.ts
-│  │     └─ user-validation.pipe.ts
+│  │  │  ├─ response.interceptor.ts
+│  │  │  └─ token-cookie.interceptor.ts
+│  │  ├─ middlewares
+│  │  │  └─ token-cookie.middleware.ts
+│  │  ├─ pipes
+│  │  │  └─ validation.pipe.ts
+│  │  └─ types
+│  │     └─ express.d.ts
 │  └─ sys
+│     ├─ cloudinary
+│     │  ├─ cloudinary.controller.ts
+│     │  ├─ cloudinary.module.ts
+│     │  └─ cloudinary.service.ts
 │     ├─ config
 │     │  └─ config.service.ts
 │     ├─ prisma
@@ -169,6 +212,7 @@ movie-capstone
 ├─ test.js
 ├─ tsconfig.build.json
 ├─ tsconfig.build.tsbuildinfo
-└─ tsconfig.json
+├─ tsconfig.json
+└─ vercel.json
 
 ```

@@ -31,12 +31,22 @@ async function bootstrap() {
     .setTitle('Movie API')
     .setDescription('API documentation for Movie application')
     .setVersion('1.0')
-    .addBearerAuth() // Thêm nếu dùng JWT
+    .addBearerAuth() // Nếu sử dụng JWT
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
-
+  SwaggerModule.setup('api', app, document, {
+    customSiteTitle: 'Movie API Documentation',
+    customJs: [
+      'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-bundle.min.js',
+      'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-standalone-preset.min.js',
+    ],
+    customCssUrl: [
+      'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.min.css',
+      'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-standalone-preset.min.css',
+      'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.css',
+    ],
+  });
   await app.listen(APP_CONSTANTS.PORT);
   console.log(
     `Application is running on: http://localhost:${APP_CONSTANTS.PORT}`,
