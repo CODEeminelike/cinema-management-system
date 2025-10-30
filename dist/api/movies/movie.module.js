@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MovieModule = void 0;
 const common_1 = require("@nestjs/common");
-const guard_module_1 = require("shared/guards/guard.module");
-const prisma_module_1 = require("sys/prisma/prisma.module");
+const guard_module_1 = require("../../shared/guards/guard.module"); // ← SỬA THÀNH ../../
+const prisma_module_1 = require("../../sys/prisma/prisma.module"); // ← SỬA THÀNH ../../
 const movie_service_1 = require("./movie.service");
 const movie_controller_1 = require("./movie.controller");
 let MovieModule = class MovieModule {

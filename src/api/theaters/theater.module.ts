@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TheaterController } from './theater.controller';
-import { GuardModule } from 'shared/guards/guard.module';
-import { PrismaModule } from 'sys/prisma/prisma.module';
+import { GuardModule } from '../../shared/guards/guard.module'; // ← SỬA THÀNH ../../
+import { PrismaModule } from '../../sys/prisma/prisma.module'; // ← SỬA THÀNH ../../
 import { TheaterService } from './theater.service';
 
 @Module({

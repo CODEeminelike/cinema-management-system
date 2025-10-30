@@ -9,8 +9,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TheaterModule = void 0;
 const common_1 = require("@nestjs/common");
 const theater_controller_1 = require("./theater.controller");
-const guard_module_1 = require("shared/guards/guard.module");
-const prisma_module_1 = require("sys/prisma/prisma.module");
+const guard_module_1 = require("../../shared/guards/guard.module"); // ← SỬA THÀNH ../../
+const prisma_module_1 = require("../../sys/prisma/prisma.module"); // ← SỬA THÀNH ../../
 const theater_service_1 = require("./theater.service");
 let TheaterModule = class TheaterModule {
 };

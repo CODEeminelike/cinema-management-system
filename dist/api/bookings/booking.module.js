@@ -9,7 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.BookingsModule = void 0;
 const common_1 = require("@nestjs/common");
 const booking_controller_1 = require("./booking.controller");
-const prisma_module_1 = require("sys/prisma/prisma.module");
+const prisma_module_1 = require("../../sys/prisma/prisma.module"); // ← SỬA THÀNH ../../
 const booking_service_1 = require("./booking.service");
 let BookingsModule = class BookingsModule {
 };

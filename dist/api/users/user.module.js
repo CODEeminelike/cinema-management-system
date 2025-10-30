@@ -10,9 +10,9 @@ exports.UsersModule = void 0;
 const common_1 = require("@nestjs/common");
 const user_controller_1 = require("./user.controller");
 const user_service_1 = require("./user.service");
-const token_module_1 = require("sys/token/token.module");
-const prisma_module_1 = require("sys/prisma/prisma.module");
-const guard_module_1 = require("shared/guards/guard.module");
+const token_module_1 = require("../../sys/token/token.module"); // ← SỬA THÀNH ../../
+const prisma_module_1 = require("../../sys/prisma/prisma.module"); // ← SỬA THÀNH ../../
+const guard_module_1 = require("../../shared/guards/guard.module"); // ← SỬA THÀNH ../../
 let UsersModule = class UsersModule {
 };
 exports.UsersModule = UsersModule;
