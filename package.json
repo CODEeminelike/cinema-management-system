@@ -20,7 +20,8 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "prisma": "npx prisma db pull && npx prisma generate",
     "prisma:generate": "npx prisma generate",
-    "prisma:pull": "npx prisma db pull"
+    "prisma:pull": "npx prisma db pull",
+    "vercel-build": "npm run build"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",

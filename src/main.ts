@@ -26,33 +26,46 @@ async function bootstrap() {
   app.useGlobalInterceptors(new ResponseInterceptor());
   app.useGlobalInterceptors(new LoggingInterceptor(app.get(ConfigService)));
 
-  //  Swagger configuration
+  // CORS for production
+  app.enableCors({
+    origin: [
+      'https://cinema-management-system-sigma.vercel.app/', // Thay bằng domain thực tế
+      'http://localhost:3000',
+      'http://localhost:5173', // Vite dev server
+      process.env.FRONTEND_URL, // Dynamic frontend URL
+    ].filter(Boolean),
+    credentials: true,
+  });
+
+  // Swagger configuration
   const config = new DocumentBuilder()
     .setTitle('Movie API')
     .setDescription('API documentation for Movie application')
     .setVersion('1.0')
-    .addBearerAuth() // Nếu sử dụng JWT
+    .addBearerAuth()
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document, {
     customSiteTitle: 'Movie API Documentation',
-    customJs: [
-      'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-bundle.min.js',
-      'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-standalone-preset.min.js',
-    ],
-    customCssUrl: [
-      'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.min.css',
-      'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-standalone-preset.min.css',
-      'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.css',
-    ],
+    swaggerOptions: {
+      persistAuthorization: true,
+    },
   });
-  await app.listen(APP_CONSTANTS.PORT);
-  console.log(
-    `Application is running on: http://localhost:${APP_CONSTANTS.PORT}`,
-  );
-  console.log(
-    `Swagger documentation: http://localhost:${APP_CONSTANTS.PORT}/api`,
-  );
+
+  // Dynamic port for Vercel
+  const port = process.env.PORT || APP_CONSTANTS.PORT || 3333;
+
+  await app.listen(port);
+
+  // Only log in development
+  if (process.env.NODE_ENV !== 'production') {
+    console.log(`Application is running on: http://localhost:${port}`);
+    console.log(`Swagger documentation: http://localhost:${port}/api`);
+  } else {
+    console.log(`Application is running on port: ${port}`);
+    console.log(`Swagger available at: /api`);
+  }
 }
+
 bootstrap();
