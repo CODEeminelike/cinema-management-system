@@ -45,7 +45,10 @@ async function bootstrap() {
         swaggerOptions: {
             persistAuthorization: true,
         },
-        // XÓA customJs và customCssUrl để dùng resources mặc định
+        customCss: `
+    .swagger-ui .topbar { display: none }
+    .swagger-ui .information-container { display: none }
+  `,
     });
     // Dynamic port for Vercel
     const port = process.env.PORT || app_constant_1.APP_CONSTANTS.PORT || 3333;
