@@ -9,12 +9,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AdminModule = void 0;
 const common_1 = require("@nestjs/common");
 // Để sử dụng guards
-const prisma_module_1 = require("sys/prisma/prisma.module");
-const guard_module_1 = require("shared/guards/guard.module");
+const prisma_module_1 = require("../sys/prisma/prisma.module");
+const guard_module_1 = require("../shared/guards/guard.module");
 const user_module_1 = require("./users/user.module");
 const movie_module_1 = require("./movies/movie.module");
 const booking_module_1 = require("./bookings/booking.module");
-const token_module_1 = require("sys/token/token.module");
+const token_module_1 = require("../sys/token/token.module");
 let AdminModule = class AdminModule {
 };
 exports.AdminModule = AdminModule;
