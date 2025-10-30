@@ -264,7 +264,7 @@ export class UsersService {
       LOWER(email) LIKE ${lowerKeyword} OR 
       LOWER(so_dt) LIKE ${lowerKeyword}
     )`
-        : Prisma.empty
+        : Prisma.sql
     }
     ORDER BY tai_khoan DESC
     LIMIT ${pageSize} OFFSET ${skip}
@@ -289,7 +289,7 @@ export class UsersService {
       LOWER(email) LIKE ${lowerKeyword} OR 
       LOWER(so_dt) LIKE ${lowerKeyword}
     )`
-        : Prisma.empty
+        : Prisma.sql
     }
   `) as { total: number }[];
 
@@ -334,7 +334,7 @@ export class UsersService {
         LOWER(email) LIKE ${lowerKeyword} OR 
         LOWER(so_dt) LIKE ${lowerKeyword}
       )`
-          : Prisma.empty
+          : Prisma.sql
       }
       ORDER BY tai_khoan DESC
       LIMIT ${maxLimit}
@@ -361,7 +361,7 @@ export class UsersService {
         LOWER(email) LIKE ${lowerKeyword} OR 
         LOWER(so_dt) LIKE ${lowerKeyword}
       )`
-          : Prisma.empty
+          : Prisma.sql
       }
     `;
 

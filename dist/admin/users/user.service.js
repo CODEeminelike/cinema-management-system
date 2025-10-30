@@ -224,7 +224,7 @@ let UsersService = UsersService_1 = class UsersService {
       LOWER(email) LIKE ${lowerKeyword} OR 
       LOWER(so_dt) LIKE ${lowerKeyword}
     )`
-            : client_1.Prisma.empty}
+            : client_1.Prisma.sql}
     ORDER BY tai_khoan DESC
     LIMIT ${pageSize} OFFSET ${skip}
   `);
@@ -239,7 +239,7 @@ let UsersService = UsersService_1 = class UsersService {
       LOWER(email) LIKE ${lowerKeyword} OR 
       LOWER(so_dt) LIKE ${lowerKeyword}
     )`
-            : client_1.Prisma.empty}
+            : client_1.Prisma.sql}
   `);
         const total = Number(totalResult[0]?.total ?? 0);
         return {
@@ -275,7 +275,7 @@ let UsersService = UsersService_1 = class UsersService {
         LOWER(email) LIKE ${lowerKeyword} OR 
         LOWER(so_dt) LIKE ${lowerKeyword}
       )`
-            : client_1.Prisma.empty}
+            : client_1.Prisma.sql}
       ORDER BY tai_khoan DESC
       LIMIT ${maxLimit}
     `;
@@ -291,7 +291,7 @@ let UsersService = UsersService_1 = class UsersService {
         LOWER(email) LIKE ${lowerKeyword} OR 
         LOWER(so_dt) LIKE ${lowerKeyword}
       )`
-            : client_1.Prisma.empty}
+            : client_1.Prisma.sql}
     `;
         const totalResult = (await this.prisma.$queryRaw(countQuery));
         const total = Number(totalResult[0]?.total ?? 0);
