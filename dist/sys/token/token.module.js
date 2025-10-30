@@ -6,21 +6,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UsersModule = void 0;
+exports.TokenModule = void 0;
 const common_1 = require("@nestjs/common");
-const user_controller_1 = require("./user.controller");
-const user_service_1 = require("./user.service");
-const token_module_1 = require("sys/token/token.module");
-const prisma_module_1 = require("sys/prisma/prisma.module");
-const guard_module_1 = require("shared/guards/guard.module");
-let UsersModule = class UsersModule {
+const jwt_1 = require("@nestjs/jwt");
+const config_1 = require("@nestjs/config");
+const token_service_1 = require("./token.service");
+let TokenModule = class TokenModule {
 };
-exports.UsersModule = UsersModule;
-exports.UsersModule = UsersModule = __decorate([
+exports.TokenModule = TokenModule;
+exports.TokenModule = TokenModule = __decorate([
     (0, common_1.Module)({
-        imports: [token_module_1.TokenModule, prisma_module_1.PrismaModule, guard_module_1.GuardModule],
-        controllers: [user_controller_1.UsersController],
-        providers: [user_service_1.UsersService],
+        imports: [
+            config_1.ConfigModule.forRoot(), // Load .env file
+            jwt_1.JwtModule.register({}),
+        ],
+        providers: [token_service_1.TokenService],
+        exports: [token_service_1.TokenService],
     })
-], UsersModule);
-//# sourceMappingURL=user.module.js.map
+], TokenModule);
+//# sourceMappingURL=token.module.js.map

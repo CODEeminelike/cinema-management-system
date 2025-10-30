@@ -4,7 +4,7 @@ import { UsersService } from './user.service';
 import { PrismaModule } from '../../sys/prisma/prisma.module'; // Import từ sys/prisma
 
 import { GuardModule } from '../../shared/guards/guard.module'; // Để sử dụng guards
-import { TokenModule } from 'sys/token/token.mudule';
+import { TokenModule } from 'sys/token/token.module';
 import { UsersController } from './user.controller';
 import { TokenCookieMiddleware } from 'shared/middlewares/token-cookie.middleware';
 

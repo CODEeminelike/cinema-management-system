@@ -12,14 +12,14 @@ const common_1 = require("@nestjs/common");
 const user_service_1 = require("./user.service");
 const prisma_module_1 = require("../../sys/prisma/prisma.module"); // Import từ sys/prisma
 const guard_module_1 = require("../../shared/guards/guard.module"); // Để sử dụng guards
-const token_mudule_1 = require("sys/token/token.mudule");
+const token_module_1 = require("sys/token/token.module");
 const user_controller_1 = require("./user.controller");
 let UsersModule = class UsersModule {
 };
 exports.UsersModule = UsersModule;
 exports.UsersModule = UsersModule = __decorate([
     (0, common_1.Module)({
-        imports: [prisma_module_1.PrismaModule, token_mudule_1.TokenModule, guard_module_1.GuardModule],
+        imports: [prisma_module_1.PrismaModule, token_module_1.TokenModule, guard_module_1.GuardModule],
         controllers: [user_controller_1.UsersController],
         providers: [user_service_1.UsersService],
         exports: [user_service_1.UsersService],
