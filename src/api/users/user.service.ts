@@ -6,8 +6,8 @@ import {
   NotFoundException,
   BadRequestException,
 } from '@nestjs/common';
-import { PrismaService } from 'sys/prisma/prisma.service';
-import { TokenService } from 'sys/token/token.service';
+import { PrismaService } from '../../sys/prisma/prisma.service';
+import { TokenService } from '../../sys/token/token.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { LoginDto } from './dto/login.dto';
 import * as bcrypt from 'bcrypt';

@@ -5,7 +5,7 @@ import {
 } from '@nestjs/common';
 
 import { CreateShowtimeDto } from './dto/create-showtime.dto';
-import { PrismaService } from 'sys/prisma/prisma.service';
+import { PrismaService } from '../../sys/prisma/prisma.service';
 
 @Injectable()
 export class BookingsService {

@@ -5,8 +5,8 @@ import {
 } from '@nestjs/common';
 
 import { CreateMovieDto } from './dto/create-movie.dto';
-import { PrismaService } from 'sys/prisma/prisma.service';
-import { CloudinaryService } from 'sys/cloudinary/cloudinary.service';
+import { PrismaService } from '../../sys/prisma/prisma.service';
+import { CloudinaryService } from '../../sys/cloudinary/cloudinary.service';
 import { UpdateMovieDto } from './dto/update-movie.dto';
 
 @Injectable()

@@ -4,7 +4,7 @@ import {
   Logger,
   BadRequestException,
 } from '@nestjs/common';
-import { PrismaService } from 'sys/prisma/prisma.service';
+import { PrismaService } from '../../sys/prisma/prisma.service';
 import { GetMoviesDto } from './dto/get-movies.dto';
 import { GetMovieListDto } from './dto/get-movie-list.dto';
 import { GetMoviesByDateDto } from './dto/get-movies-by-date.dto';

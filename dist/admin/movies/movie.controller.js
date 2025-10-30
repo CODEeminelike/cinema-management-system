@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.MoviesController = void 0;
 const roles_decorator_1 = require("./../../shared/guards/roles/roles.decorator");
 const roles_guard_1 = require("./../../shared/guards/roles/roles.guard");
-const jwt_auth_guard_1 = require("shared/guards/auth/jwt-auth.guard");
+const jwt_auth_guard_1 = require("../../shared/guards/auth/jwt-auth.guard");
 const common_1 = require("@nestjs/common");
 const cloudinary_upload_interceptor_1 = require("./../../shared/interceptors/cloudinary-upload.interceptor");
 const movie_service_1 = require("./movie.service");

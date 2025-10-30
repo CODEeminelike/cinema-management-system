@@ -2,11 +2,11 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { HttpExceptionFilter } from './shared/filters/http-exception.filter';
-import { APP_CONSTANTS } from 'shared/constant/app.constant';
-import { LoggingInterceptor } from 'shared/interceptors/logging.interceptor';
+import { APP_CONSTANTS } from './shared/constant/app.constant'; // ← SỬA THÀNH ./
+import { LoggingInterceptor } from './shared/interceptors/logging.interceptor'; // ← SỬA THÀNH ./
 import { ConfigService } from '@nestjs/config';
 import { ResponseInterceptor } from './shared/interceptors/response.interceptor';
-import { CustomValidationPipe } from 'shared/pipes/validation.pipe';
+import { CustomValidationPipe } from './shared/pipes/validation.pipe'; // ← SỬA THÀNH ./
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {

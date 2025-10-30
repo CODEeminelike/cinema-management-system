@@ -2,7 +2,7 @@
 
 import { Roles } from './../../shared/guards/roles/roles.decorator';
 import { RolesGuard } from './../../shared/guards/roles/roles.guard';
-import { JwtAuthGuard } from 'shared/guards/auth/jwt-auth.guard';
+import { JwtAuthGuard } from '../../shared/guards/auth/jwt-auth.guard';
 import {
   Controller,
   Post,

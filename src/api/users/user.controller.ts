@@ -16,10 +16,10 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { LoginDto } from './dto/login.dto';
 import { RefreshTokenDto } from './dto/refresh-token.dto';
 import { UsersService } from './user.service';
-import { JwtAuthGuard } from 'shared/guards/auth/jwt-auth.guard';
+import { JwtAuthGuard } from '../../shared/guards/auth/jwt-auth.guard';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { ApiTags } from '@nestjs/swagger';
-import { TokenCookieInterceptor } from 'shared/interceptors/token-cookie.interceptor';
+import { TokenCookieInterceptor } from '../../shared/interceptors/token-cookie.interceptor';
 @ApiTags('QuanLyNguoiDung')
 @Controller('QuanLyNguoiDung')
 export class UsersController {

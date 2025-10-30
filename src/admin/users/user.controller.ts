@@ -18,7 +18,7 @@ import { JwtAuthGuard } from '../../shared/guards/auth/jwt-auth.guard';
 import { RolesGuard } from '../../shared/guards/roles/roles.guard';
 import { Roles } from '../../shared/guards/roles/roles.decorator';
 import { retry } from 'rxjs';
-import { TokenCookieInterceptor } from 'shared/interceptors/token-cookie.interceptor';
+import { TokenCookieInterceptor } from '../../shared/interceptors/token-cookie.interceptor';
 import { PaginationDto } from './dto/pagination.dto';
 import { SearchUserDto } from './dto/search-user.dto';
 import { SearchNoPagDto } from './dto/search-no-pag.dto';

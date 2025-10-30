@@ -4,7 +4,7 @@ import {
   BadRequestException,
   Logger,
 } from '@nestjs/common';
-import { PrismaService } from 'sys/prisma/prisma.service';
+import { PrismaService } from '../../sys/prisma/prisma.service';
 
 interface CinemaSystemResponse {
   ma_he_thong_rap: number;

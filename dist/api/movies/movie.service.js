@@ -12,7 +12,7 @@ var MovieService_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MovieService = void 0;
 const common_1 = require("@nestjs/common");
-const prisma_service_1 = require("sys/prisma/prisma.service");
+const prisma_service_1 = require("../../sys/prisma/prisma.service");
 let MovieService = MovieService_1 = class MovieService {
     prisma;
     logger = new common_1.Logger(MovieService_1.name);

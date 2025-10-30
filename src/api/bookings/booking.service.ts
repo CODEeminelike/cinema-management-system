@@ -5,7 +5,7 @@ import {
   ForbiddenException,
 } from '@nestjs/common';
 
-import { PrismaService } from 'sys/prisma/prisma.service';
+import { PrismaService } from '../../sys/prisma/prisma.service';
 import { CreateBookingDto } from './dto/create-booking.dto';
 
 @Injectable()
