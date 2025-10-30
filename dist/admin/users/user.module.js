@@ -12,7 +12,7 @@ const common_1 = require("@nestjs/common");
 const user_service_1 = require("./user.service");
 const prisma_module_1 = require("../../sys/prisma/prisma.module"); // Import từ sys/prisma
 const guard_module_1 = require("../../shared/guards/guard.module"); // Để sử dụng guards
-const token_mudule_1 = require("../../sys/token/token.mudule");
+const token_mudule_1 = require("sys/token/token.mudule");
 const user_controller_1 = require("./user.controller");
 let UsersModule = class UsersModule {
 };

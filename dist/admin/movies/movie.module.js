@@ -7,11 +7,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MoviesModule = void 0;
-const prisma_module_1 = require("../../sys/prisma/prisma.module");
+const prisma_module_1 = require("sys/prisma/prisma.module");
 const movie_controller_1 = require("./movie.controller");
 const movie_service_1 = require("./movie.service");
 const common_1 = require("@nestjs/common");
-const cloudinary_module_1 = require("../../sys/cloudinary/cloudinary.module");
+const cloudinary_module_1 = require("sys/cloudinary/cloudinary.module");
 let MoviesModule = class MoviesModule {
 };
 exports.MoviesModule = MoviesModule;

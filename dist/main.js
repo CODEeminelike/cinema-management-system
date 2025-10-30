@@ -4,11 +4,11 @@ const core_1 = require("@nestjs/core");
 const app_module_1 = require("./app.module");
 const common_1 = require("@nestjs/common");
 const http_exception_filter_1 = require("./shared/filters/http-exception.filter");
-const app_constant_1 = require("./shared/constant/app.constant");
-const logging_interceptor_1 = require("./shared/interceptors/logging.interceptor");
+const app_constant_1 = require("shared/constant/app.constant");
+const logging_interceptor_1 = require("shared/interceptors/logging.interceptor");
 const config_1 = require("@nestjs/config");
 const response_interceptor_1 = require("./shared/interceptors/response.interceptor");
-const validation_pipe_1 = require("./shared/pipes/validation.pipe");
+const validation_pipe_1 = require("shared/pipes/validation.pipe");
 const swagger_1 = require("@nestjs/swagger");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);

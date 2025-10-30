@@ -18,10 +18,10 @@ const create_user_dto_1 = require("./dto/create-user.dto");
 const login_dto_1 = require("./dto/login.dto");
 const refresh_token_dto_1 = require("./dto/refresh-token.dto");
 const user_service_1 = require("./user.service");
-const jwt_auth_guard_1 = require("../../shared/guards/auth/jwt-auth.guard");
+const jwt_auth_guard_1 = require("shared/guards/auth/jwt-auth.guard");
 const update_user_dto_1 = require("./dto/update-user.dto");
 const swagger_1 = require("@nestjs/swagger");
-const token_cookie_interceptor_1 = require("../../shared/interceptors/token-cookie.interceptor");
+const token_cookie_interceptor_1 = require("shared/interceptors/token-cookie.interceptor");
 let UsersController = class UsersController {
     usersService;
     constructor(usersService) {
