@@ -21,24 +21,24 @@ import { ApiTags } from '@nestjs/swagger';
 export class BookingsController {
   constructor(private readonly bookingsService: BookingsService) {}
 
-  @Post('LayThongTinLichChieuHeThongRap')
-  async getShowtimes(
-    @Query('ma_phim') ma_phim?: string,
-    @Query('ma_rap') ma_rap?: string,
-  ) {
-    const ma_phim_num = ma_phim ? parseInt(ma_phim) : undefined;
-    const ma_rap_num = ma_rap ? parseInt(ma_rap) : undefined;
+  // @Post('LayThongTinLichChieuHeThongRap')
+  // async getShowtimes(
+  //   @Query('ma_phim') ma_phim?: string,
+  //   @Query('ma_rap') ma_rap?: string,
+  // ) {
+  //   const ma_phim_num = ma_phim ? parseInt(ma_phim) : undefined;
+  //   const ma_rap_num = ma_rap ? parseInt(ma_rap) : undefined;
 
-    const showtimes = await this.bookingsService.getShowtimes(
-      ma_phim_num,
-      ma_rap_num,
-    );
+  //   const showtimes = await this.bookingsService.getShowtimes(
+  //     ma_phim_num,
+  //     ma_rap_num,
+  //   );
 
-    return {
-      message: 'Showtimes retrieved successfully',
-      data: showtimes,
-    };
-  }
+  //   return {
+  //     message: 'Showtimes retrieved successfully',
+  //     data: showtimes,
+  //   };
+  // }
 
   @Post('DatVe')
   @UseGuards(JwtAuthGuard) // Thêm guard để yêu cầu xác thực JWT
@@ -62,17 +62,17 @@ export class BookingsController {
     };
   }
 
-  @Get('showtimes/:ma_lich_chieu')
-  async getShowtimeById(
-    @Param('ma_lich_chieu', ParseIntPipe) ma_lich_chieu: number,
-  ) {
-    const showtime = await this.bookingsService.getShowtimeById(ma_lich_chieu);
+  // @Get('showtimes/:ma_lich_chieu')
+  // async getShowtimeById(
+  //   @Param('ma_lich_chieu', ParseIntPipe) ma_lich_chieu: number,
+  // ) {
+  //   const showtime = await this.bookingsService.getShowtimeById(ma_lich_chieu);
 
-    return {
-      message: 'Showtime retrieved successfully',
-      data: showtime,
-    };
-  }
+  //   return {
+  //     message: 'Showtime retrieved successfully',
+  //     data: showtime,
+  //   };
+  // }
 
   @Get('LayDanhSachPhongVe')
   async getRoomSeats(@Query('maLichChieu', ParseIntPipe) maLichChieu: number) {

@@ -12,93 +12,93 @@ import { CreateBookingDto } from './dto/create-booking.dto';
 export class BookingsService {
   constructor(private prisma: PrismaService) {}
 
-  async getShowtimes(ma_phim?: number, ma_rap?: number) {
-    const where: any = {};
+  // async getShowtimes(ma_phim?: number, ma_rap?: number) {
+  //   const where: any = {};
 
-    if (ma_phim) {
-      where.ma_phim = ma_phim;
-    }
+  //   if (ma_phim) {
+  //     where.ma_phim = ma_phim;
+  //   }
 
-    if (ma_rap) {
-      where.ma_rap = ma_rap;
-    }
+  //   if (ma_rap) {
+  //     where.ma_rap = ma_rap;
+  //   }
 
-    const showtimes = await this.prisma.lichChieu.findMany({
-      where: {
-        ...where,
-        deletedAt: null, // Bổ sung lọc soft delete để cải thiện
-      },
-      include: {
-        Phim: {
-          select: {
-            ten_phim: true,
-            hinh_anh: true,
-          },
-        },
-        RapPhim: {
-          include: {
-            CumRap: {
-              include: {
-                HeThongRap: {
-                  select: {
-                    ten_he_thong_rap: true,
-                  },
-                },
-              },
-            },
-          },
-        },
-      },
-      orderBy: {
-        ngay_gio_chieu: 'asc',
-      },
-    });
+  //   const showtimes = await this.prisma.lichChieu.findMany({
+  //     where: {
+  //       ...where,
+  //       deletedAt: null, // Bổ sung lọc soft delete để cải thiện
+  //     },
+  //     include: {
+  //       Phim: {
+  //         select: {
+  //           ten_phim: true,
+  //           hinh_anh: true,
+  //         },
+  //       },
+  //       RapPhim: {
+  //         include: {
+  //           CumRap: {
+  //             include: {
+  //               HeThongRap: {
+  //                 select: {
+  //                   ten_he_thong_rap: true,
+  //                 },
+  //               },
+  //             },
+  //           },
+  //         },
+  //       },
+  //     },
+  //     orderBy: {
+  //       ngay_gio_chieu: 'asc',
+  //     },
+  //   });
 
-    return showtimes;
-  }
+  //   return showtimes;
+  // }
 
-  async getShowtimeById(ma_lich_chieu: number) {
-    const showtime = await this.prisma.lichChieu.findUnique({
-      where: {
-        ma_lich_chieu,
-        deletedAt: null, // Bổ sung lọc soft delete để cải thiện
-      },
-      include: {
-        Phim: true,
-        RapPhim: {
-          include: {
-            CumRap: {
-              include: {
-                HeThongRap: true,
-              },
-            },
-            Ghe: {
-              where: {
-                deletedAt: null,
-              },
-            },
-          },
-        },
-        DatVe: {
-          include: {
-            Ghe: true,
-            NguoiDung: {
-              select: {
-                ho_ten: true,
-                email: true,
-              },
-            },
-          },
-        },
-      },
-    });
+  // async getShowtimeById(ma_lich_chieu: number) {
+  //   const showtime = await this.prisma.lichChieu.findUnique({
+  //     where: {
+  //       ma_lich_chieu,
+  //       deletedAt: null, // Bổ sung lọc soft delete để cải thiện
+  //     },
+  //     include: {
+  //       Phim: true,
+  //       RapPhim: {
+  //         include: {
+  //           CumRap: {
+  //             include: {
+  //               HeThongRap: true,
+  //             },
+  //           },
+  //           Ghe: {
+  //             where: {
+  //               deletedAt: null,
+  //             },
+  //           },
+  //         },
+  //       },
+  //       DatVe: {
+  //         include: {
+  //           Ghe: true,
+  //           NguoiDung: {
+  //             select: {
+  //               ho_ten: true,
+  //               email: true,
+  //             },
+  //           },
+  //         },
+  //       },
+  //     },
+  //   });
 
-    if (!showtime) {
-      throw new NotFoundException('Showtime not found');
-    }
+  //   if (!showtime) {
+  //     throw new NotFoundException('Showtime not found');
+  //   }
 
-    return showtime;
-  }
+  //   return showtime;
+  // }
 
   async createBooking(tai_khoan: number, createBookingDto: CreateBookingDto) {
     const { ma_lich_chieu, danh_sach_ma_ghe } = createBookingDto;
