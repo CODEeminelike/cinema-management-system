@@ -17,22 +17,19 @@ async function bootstrap() {
     app.useGlobalPipes(new validation_pipe_1.CustomValidationPipe());
     // Global filters
     app.useGlobalFilters(new http_exception_filter_1.HttpExceptionFilter());
-    // Global prefix
-    app.setGlobalPrefix(app_constant_1.APP_CONSTANTS.API_PREFIX || 'api');
+    // Global prefix - QUAN TRỌNG: chỉ dùng '/' trên Vercel
+    app.setGlobalPrefix(process.env.NODE_ENV === 'production'
+        ? ''
+        : app_constant_1.APP_CONSTANTS.API_PREFIX || 'api');
     // Global interceptors
     app.useGlobalInterceptors(new response_interceptor_1.ResponseInterceptor());
     app.useGlobalInterceptors(new logging_interceptor_1.LoggingInterceptor(app.get(config_1.ConfigService)));
     // CORS for production
     app.enableCors({
-        origin: [
-            'https://cinema-management-system-sigma.vercel.app/', // Thay bằng domain thực tế
-            'http://localhost:3000',
-            'http://localhost:5173', // Vite dev server
-            process.env.FRONTEND_URL, // Dynamic frontend URL
-        ].filter(Boolean),
+        origin: true, // Cho phép tất cả trên production
         credentials: true,
     });
-    // Swagger configuration
+    // Swagger configuration - ĐẶT TRƯỚC global prefix
     const config = new swagger_1.DocumentBuilder()
         .setTitle('Movie API')
         .setDescription('API documentation for Movie application')
@@ -40,7 +37,9 @@ async function bootstrap() {
         .addBearerAuth()
         .build();
     const document = swagger_1.SwaggerModule.createDocument(app, config);
-    swagger_1.SwaggerModule.setup('api', app, document, {
+    // Swagger path - dùng '/' thay vì 'api' trên production
+    const swaggerPath = process.env.NODE_ENV === 'production' ? '' : 'api';
+    swagger_1.SwaggerModule.setup(swaggerPath, app, document, {
         customSiteTitle: 'Movie API Documentation',
         swaggerOptions: {
             persistAuthorization: true,
@@ -49,15 +48,9 @@ async function bootstrap() {
     // Dynamic port for Vercel
     const port = process.env.PORT || app_constant_1.APP_CONSTANTS.PORT || 3333;
     await app.listen(port);
-    // Only log in development
-    if (process.env.NODE_ENV !== 'production') {
-        console.log(`Application is running on: http://localhost:${port}`);
-        console.log(`Swagger documentation: http://localhost:${port}/api`);
-    }
-    else {
-        console.log(`Application is running on port: ${port}`);
-        console.log(`Swagger available at: /api`);
-    }
+    console.log(`Application is running on port: ${port}`);
+    console.log(`Swagger documentation: /${swaggerPath}`);
+    console.log(`Environment: ${process.env.NODE_ENV}`);
 }
 bootstrap();
 //# sourceMappingURL=main.js.map

@@ -19,8 +19,12 @@ async function bootstrap() {
   // Global filters
   app.useGlobalFilters(new HttpExceptionFilter());
 
-  // Global prefix
-  app.setGlobalPrefix(APP_CONSTANTS.API_PREFIX || 'api');
+  // Global prefix - QUAN TRỌNG: chỉ dùng '/' trên Vercel
+  app.setGlobalPrefix(
+    process.env.NODE_ENV === 'production'
+      ? ''
+      : APP_CONSTANTS.API_PREFIX || 'api',
+  );
 
   // Global interceptors
   app.useGlobalInterceptors(new ResponseInterceptor());
@@ -28,16 +32,11 @@ async function bootstrap() {
 
   // CORS for production
   app.enableCors({
-    origin: [
-      'https://cinema-management-system-sigma.vercel.app/', // Thay bằng domain thực tế
-      'http://localhost:3000',
-      'http://localhost:5173', // Vite dev server
-      process.env.FRONTEND_URL, // Dynamic frontend URL
-    ].filter(Boolean),
+    origin: true, // Cho phép tất cả trên production
     credentials: true,
   });
 
-  // Swagger configuration
+  // Swagger configuration - ĐẶT TRƯỚC global prefix
   const config = new DocumentBuilder()
     .setTitle('Movie API')
     .setDescription('API documentation for Movie application')
@@ -46,7 +45,10 @@ async function bootstrap() {
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document, {
+
+  // Swagger path - dùng '/' thay vì 'api' trên production
+  const swaggerPath = process.env.NODE_ENV === 'production' ? '' : 'api';
+  SwaggerModule.setup(swaggerPath, app, document, {
     customSiteTitle: 'Movie API Documentation',
     swaggerOptions: {
       persistAuthorization: true,
@@ -58,14 +60,9 @@ async function bootstrap() {
 
   await app.listen(port);
 
-  // Only log in development
-  if (process.env.NODE_ENV !== 'production') {
-    console.log(`Application is running on: http://localhost:${port}`);
-    console.log(`Swagger documentation: http://localhost:${port}/api`);
-  } else {
-    console.log(`Application is running on port: ${port}`);
-    console.log(`Swagger available at: /api`);
-  }
+  console.log(`Application is running on port: ${port}`);
+  console.log(`Swagger documentation: /${swaggerPath}`);
+  console.log(`Environment: ${process.env.NODE_ENV}`);
 }
 
 bootstrap();
