@@ -1,0 +1,3993 @@
+{
+	"info": {
+		"_postman_id": "1be89ac9-a4be-4468-a3fe-c31bd9f0beb3",
+		"name": "movie-capstone",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44018499",
+		"_collection_link": "https://tung-5167015.postman.co/workspace/Tung's-Workspace~c658f7d0-98f8-4763-8e72-f7440e3addf6/collection/44018499-1be89ac9-a4be-4468-a3fe-c31bd9f0beb3?action=share&source=collection_link&creator=44018499"
+	},
+	"item": [
+		{
+			"name": "init",
+			"item": [
+				{
+					"name": "init1stM",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Avatar\",\r\n  \"year\": 2009\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/movies/test",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								"test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "initPrisma",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Test User v2\",\r\n  \"email\": \"test@example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"ho_ten\": \"Nguyen Van V\",\r\n  \"email\": \"userV@example.com\",\r\n  \"so_dt\": \"0123456789\",\r\n  \"mat_khau\": \"Pass123!\"\r\n}\r\n\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{capstone}}QuanLyNguoiDung/DangKy",
+									"host": [
+										"{{capstone}}QuanLyNguoiDung"
+									],
+									"path": [
+										"DangKy"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Created",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"ho_ten\": \"Nguyen Van B\",\r\n  \"email\": \"userB@example.com\",\r\n  \"so_dt\": \"0123456789\",\r\n  \"mat_khau\": \"Pass123!\",\r\n  \"loai_nguoi_dung\": \"USER\"\r\n}\r\n\r\n\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{capstone}}users/register",
+											"host": [
+												"{{capstone}}users"
+											],
+											"path": [
+												"register"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "628"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"274-ZkcIcoPS3PT1ZzSL9y7boAuI/k8\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 27 Oct 2025 09:31:58 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 201,\n    \"message\": \"Xử lý thành công!\",\n    \"content\": {\n        \"message\": \"Đăng ký/Đăng nhập thành công\",\n        \"data\": {\n            \"user\": {\n                \"tai_khoan\": 4,\n                \"ho_ten\": \"Nguyen Van B\",\n                \"email\": \"userB@example.com\",\n                \"so_dt\": \"0123456789\",\n                \"loai_nguoi_dung\": \"USER\"\n            },\n            \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTc2MTU1NzUxOCwiZXhwIjoxNzYxNTYxMTE4fQ.hjPilV3K6e5jZhwmggCn2lqdNcWzdUtFOHFUUnosL8Q\",\n            \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTc2MTU1NzUxOCwiZXhwIjoxNzYyMTYyMzE4fQ.6UgE_J6Kof8Id8iTZX99kdHJX-FIwWz6FPvDuGRdsBI\"\n        }\n    },\n    \"dateTime\": \"2025-10-27T09:31:58.716Z\",\n    \"messageConstants\": null\n}"
+								},
+								{
+									"name": "Conflict",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"ho_ten\": \"Nguyen Van B\",\r\n  \"email\": \"userB@example.com\",\r\n  \"so_dt\": \"0123456789\",\r\n  \"mat_khau\": \"Pass123!\",\r\n  \"loai_nguoi_dung\": \"USER\"\r\n}\r\n\r\n\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{capstone}}users/register",
+											"host": [
+												"{{capstone}}users"
+											],
+											"path": [
+												"register"
+											]
+										}
+									},
+									"status": "Conflict",
+									"code": 409,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "145"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"91-hhAnh1zs6dDqUhkQIjTS4qYqi+I\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 27 Oct 2025 09:32:20 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 409,\n    \"message\": \"Conflict\",\n    \"content\": \"Email đã được sử dụng\",\n    \"dateTime\": \"2025-10-27T09:32:20.988Z\",\n    \"messageConstants\": null\n}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"ho_ten\": \"Nguyen Van B\",\r\n  \"email\": \"userB@example.com\",\r\n  \"so_dt\": \"0123456789\",\r\n  \"mat_khau\": \"Pass123\",\r\n  \"loai_nguoi_dung\": \"USER\"\r\n}\r\n\r\n\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{capstone}}users/register",
+											"host": [
+												"{{capstone}}users"
+											],
+											"path": [
+												"register"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "238"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"ee-elz24dV3H0Y3/ti7g+UKYAp1Cvk\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 27 Oct 2025 09:32:55 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 400,\n    \"message\": \"Bad Request\",\n    \"content\": \"Mật khẩu phải chứa ít nhất một chữ hoa, một chữ thường, một số và một ký tự đặc biệt\",\n    \"dateTime\": \"2025-10-27T09:32:55.842Z\",\n    \"messageConstants\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "refresh",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"// Lấy refreshToken từ cookie header\r",
+											"const setCookieHeader = pm.response.headers.get('Set-Cookie');\r",
+											"\r",
+											"if (setCookieHeader) {\r",
+											"    // Tìm refreshToken trong cookie string\r",
+											"    const cookieMatch = setCookieHeader.match(/refreshToken=([^;]+)/);\r",
+											"    \r",
+											"    if (cookieMatch && cookieMatch[1]) {\r",
+											"        const refreshToken = cookieMatch[1];\r",
+											"        pm.globals.set(\"refreshToken\", refreshToken);\r",
+											"        console.log(\" Đã lấy refreshToken từ cookie:\", refreshToken);\r",
+											"    } else {\r",
+											"        console.log(\"❌ Không tìm thấy refreshToken trong cookie\");\r",
+											"    }\r",
+											"} else {\r",
+											"    console.log(\"❌ Không có Set-Cookie header trong response\");\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"refreshToken\": \"{{refreshToken}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{capstone}}QuanLyNguoiDung/LamMoiToken",
+									"host": [
+										"{{capstone}}QuanLyNguoiDung"
+									],
+									"path": [
+										"LamMoiToken"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"refreshToken\": \"{{}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{capstone}}QuanLyNguoiDung/LamMoiToken",
+											"host": [
+												"{{capstone}}QuanLyNguoiDung"
+											],
+											"path": [
+												"LamMoiToken"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "173"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"ad-axuPpqbtMSC0EsbAem0w/SdNPTM\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 31 Oct 2025 04:48:09 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 401,\n    \"message\": \"Unauthorized\",\n    \"content\": \"Refresh token không hợp lệ hoặc đã hết hạn\",\n    \"dateTime\": \"2025-10-31T04:48:09.410Z\",\n    \"messageConstants\": null\n}"
+								},
+								{
+									"name": "Created",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"refreshToken\": \"{{refreshToken}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{capstone}}QuanLyNguoiDung/LamMoiToken",
+											"host": [
+												"{{capstone}}QuanLyNguoiDung"
+											],
+											"path": [
+												"LamMoiToken"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJpYXQiOjE3NjE4ODYxMTYsImV4cCI6MTc2MjQ5MDkxNn0.aDyzIU6tWv786eGBxe_3RmgPLhXVlgFyn1sqPWvaS5s; Max-Age=604800; Path=/; Expires=Fri, 07 Nov 2025 04:48:36 GMT; HttpOnly; SameSite=Strict"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "288"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"120-u6+sOWgHnF5uyPFt7asQXHuAM1Y\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 31 Oct 2025 04:48:36 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 201,\n    \"message\": \"Xử lý thành công!\",\n    \"content\": {\n        \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJpYXQiOjE3NjE4ODYxMTYsImV4cCI6MTc2MTg4OTcxNn0.ZMXZGr2L9k4CgEhg3btHfV4_3yH3geWy8Y2Ckn5uTn0\"\n    },\n    \"dateTime\": \"2025-10-31T04:48:36.323Z\",\n    \"messageConstants\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "logout",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{refreshToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"refreshToken\": \"{{refreshToken}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{capstone}}QuanLyNguoiDung/DangXuat",
+									"host": [
+										"{{capstone}}QuanLyNguoiDung"
+									],
+									"path": [
+										"DangXuat"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-info",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{capstone}}QuanLyNguoiDung/ThongTinTaiKhoan",
+									"host": [
+										"{{capstone}}QuanLyNguoiDung"
+									],
+									"path": [
+										"ThongTinTaiKhoan"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{capstone}}QuanLyNguoiDung/ThongTinTaiKhoan",
+											"host": [
+												"{{capstone}}QuanLyNguoiDung"
+											],
+											"path": [
+												"ThongTinTaiKhoan"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "150"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"96-w4XCFEYD6pCnoZfBv8HNR60HBqE\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 31 Oct 2025 04:45:04 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 401,\n    \"message\": \"Unauthorized\",\n    \"content\": \"Không được phép truy cập\",\n    \"dateTime\": \"2025-10-31T04:45:04.488Z\",\n    \"messageConstants\": null\n}"
+								},
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{capstone}}QuanLyNguoiDung/ThongTinTaiKhoan",
+											"host": [
+												"{{capstone}}QuanLyNguoiDung"
+											],
+											"path": [
+												"ThongTinTaiKhoan"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "251"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"fb-MHerkgLHQDRxSTV7mxwKyBvekrk\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 31 Oct 2025 04:47:44 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Xử lý thành công!\",\n    \"content\": {\n        \"tai_khoan\": 23,\n        \"ho_ten\": \"Nguyen Van B_updated\",\n        \"email\": \"userAAAA@example.com\",\n        \"so_dt\": \"0123456789\",\n        \"loai_nguoi_dung\": \"USER\"\n    },\n    \"dateTime\": \"2025-10-31T04:47:44.714Z\",\n    \"messageConstants\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "update-profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{  \"ho_ten\": \"Nguyen Van V_updated\",\r\n    \"email\": \"userV@example.com\",\r\n    \"so_dt\": \"0123456789\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{capstone}}QuanLyNguoiDung/CapNhatThongTinNguoiDung",
+									"host": [
+										"{{capstone}}QuanLyNguoiDung"
+									],
+									"path": [
+										"CapNhatThongTinNguoiDung"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{  \"ho_ten\": \"Nguyen Van B_updated\",\r\n    \"email\": \"userAAAA@example.com\",\r\n    \"so_dt\": \"0123456789\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{capstone}}QuanLyNguoiDung/CapNhatThongTinNguoiDung",
+											"host": [
+												"{{capstone}}QuanLyNguoiDung"
+											],
+											"path": [
+												"CapNhatThongTinNguoiDung"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "251"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"fb-nXIyQVzEBd899HyF88ItaQvKZQg\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 31 Oct 2025 04:46:30 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Xử lý thành công!\",\n    \"content\": {\n        \"tai_khoan\": 23,\n        \"ho_ten\": \"Nguyen Van B_updated\",\n        \"email\": \"userAAAA@example.com\",\n        \"so_dt\": \"0123456789\",\n        \"loai_nguoi_dung\": \"USER\"\n    },\n    \"dateTime\": \"2025-10-31T04:46:30.449Z\",\n    \"messageConstants\": null\n}"
+								},
+								{
+									"name": "Conflict",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{  \"ho_ten\": \"Nguyen Van B_updated\",\r\n    \"email\": \"userA@example.com\",\r\n    \"so_dt\": \"0123456789\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{capstone}}QuanLyNguoiDung/CapNhatThongTinNguoiDung",
+											"host": [
+												"{{capstone}}QuanLyNguoiDung"
+											],
+											"path": [
+												"CapNhatThongTinNguoiDung"
+											]
+										}
+									},
+									"status": "Conflict",
+									"code": 409,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "145"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"91-ZT1qiQmBpqj8t794xx31cdbZsUk\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 31 Oct 2025 04:46:47 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 409,\n    \"message\": \"Conflict\",\n    \"content\": \"Email đã được sử dụng\",\n    \"dateTime\": \"2025-10-31T04:46:47.308Z\",\n    \"messageConstants\": null\n}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{  \"ho_ten\": \"Nguyen Van B_updated\",\r\n    \"email\": \"\",\r\n    \"so_dt\": \"0123456789\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{capstone}}QuanLyNguoiDung/CapNhatThongTinNguoiDung",
+											"host": [
+												"{{capstone}}QuanLyNguoiDung"
+											],
+											"path": [
+												"CapNhatThongTinNguoiDung"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "172"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"ac-hWFVHg2tUifCBsmn7TNJ7enrPgA\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 31 Oct 2025 04:47:11 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 400,\n    \"message\": \"Dữ liệu đầu vào không hợp lệ\",\n    \"content\": [\n        \"Email không hợp lệ\"\n    ],\n    \"dateTime\": \"2025-10-31T04:47:11.176Z\",\n    \"messageConstants\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const data = pm.response.json();\r",
+											"\r",
+											"pm.globals.set(\"accessToken\", data.content.data.accessToken);\r",
+											"\r",
+											"\r",
+											"// Lấy refreshToken từ cookie header\r",
+											"const setCookieHeader = pm.response.headers.get('Set-Cookie');\r",
+											"\r",
+											"if (setCookieHeader) {\r",
+											"    // Tìm refreshToken trong cookie string\r",
+											"    const cookieMatch = setCookieHeader.match(/refreshToken=([^;]+)/);\r",
+											"    \r",
+											"    if (cookieMatch && cookieMatch[1]) {\r",
+											"        const refreshToken = cookieMatch[1];\r",
+											"        pm.globals.set(\"refreshToken\", refreshToken);\r",
+											"        console.log(\" Đã lấy refreshToken từ cookie:\", refreshToken);\r",
+											"    } else {\r",
+											"        console.log(\"❌ Không tìm thấy refreshToken trong cookie\");\r",
+											"    }\r",
+											"} else {\r",
+											"    console.log(\"❌ Không có Set-Cookie header trong response\");\r",
+											"}\r",
+											"\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"userV@example.com\",\r\n  \"mat_khau\": \"Pass123!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{capstone}}QuanLyNguoiDung/DangNhap",
+									"host": [
+										"{{capstone}}QuanLyNguoiDung"
+									],
+									"path": [
+										"DangNhap"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"email\": \"user@example.com\",\r\n  \"mat_khau\": \"Pass123!\"\r\n \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{capstone}}users/login",
+											"host": [
+												"{{capstone}}users"
+											],
+											"path": [
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "628"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"274-CVfcELlgRtvJu4LrMQp8vMKfaR8\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 27 Oct 2025 09:33:35 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Xử lý thành công!\",\n    \"content\": {\n        \"message\": \"Đăng ký/Đăng nhập thành công\",\n        \"data\": {\n            \"user\": {\n                \"tai_khoan\": 3,\n                \"ho_ten\": \"Nguyen Van Az\",\n                \"email\": \"user@example.com\",\n                \"so_dt\": \"0123456789\",\n                \"loai_nguoi_dung\": \"USER\"\n            },\n            \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2MTU1NzYxNCwiZXhwIjoxNzYxNTYxMjE0fQ.bwZkmjRjsnkjEvdPiKiaHp900KxWGRjyWavD7PKY3_g\",\n            \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2MTU1NzYxNCwiZXhwIjoxNzYyMTYyNDE0fQ.QxOgb-__hqfDt4KKt3Pf6l5ZGuUsQrEvW1VWWtZrkyE\"\n        }\n    },\n    \"dateTime\": \"2025-10-27T09:33:35.094Z\",\n    \"messageConstants\": null\n}"
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"email\": \"user@example.com\",\r\n  \"mat_khau\": \"Pass123\"\r\n \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{capstone}}users/login",
+											"host": [
+												"{{capstone}}users"
+											],
+											"path": [
+												"login"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "157"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"9d-KyHCoE6nceAhsC1WFCsumZdQBCU\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 27 Oct 2025 09:34:08 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 401,\n    \"message\": \"Unauthorized\",\n    \"content\": \"Email hoặc mật khẩu không đúng\",\n    \"dateTime\": \"2025-10-27T09:34:08.170Z\",\n    \"messageConstants\": null\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "theater",
+					"item": [
+						{
+							"name": "get-cinema-systems",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{capstone}}QuanLyRap/LayThongTinHeThongRap",
+									"host": [
+										"{{capstone}}QuanLyRap"
+									],
+									"path": [
+										"LayThongTinHeThongRap"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{capstone}}QuanLyRap/LayThongTinHeThongRap",
+											"host": [
+												"{{capstone}}QuanLyRap"
+											],
+											"path": [
+												"LayThongTinHeThongRap"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1007"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3ef-ojz6/6mgUGDIZsRKCalMEnZGg2o\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 31 Oct 2025 06:16:11 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Xử lý thành công!\",\n    \"content\": [\n        {\n            \"ma_he_thong_rap\": 1,\n            \"ten_he_thong_rap\": \"BHD Star Cineplex\",\n            \"logo\": \"https://res.cloudinary.com/da6gnhwrc/image/upload/v1761711923/bhd-star-cineplex_j01nfp.png\"\n        },\n        {\n            \"ma_he_thong_rap\": 2,\n            \"ten_he_thong_rap\": \"CGV\",\n            \"logo\": \"https://res.cloudinary.com/da6gnhwrc/image/upload/v1761711923/cgv_p8hzc9.png\"\n        },\n        {\n            \"ma_he_thong_rap\": 3,\n            \"ten_he_thong_rap\": \"CineStar\",\n            \"logo\": \"https://res.cloudinary.com/da6gnhwrc/image/upload/v1761711923/cinestar_yc35sv.png\"\n        },\n        {\n            \"ma_he_thong_rap\": 4,\n            \"ten_he_thong_rap\": \"Galaxy Cinema\",\n            \"logo\": \"https://res.cloudinary.com/da6gnhwrc/image/upload/v1761711922/galaxy-cinema_dgjzeg.png\"\n        },\n        {\n            \"ma_he_thong_rap\": 5,\n            \"ten_he_thong_rap\": \"Lotte Cinema\",\n            \"logo\": \"https://res.cloudinary.com/da6gnhwrc/image/upload/v1761711923/lotte-cinema_wyqagj.png\"\n        },\n        {\n            \"ma_he_thong_rap\": 6,\n            \"ten_he_thong_rap\": \"MegaGS\",\n            \"logo\": \"https://res.cloudinary.com/da6gnhwrc/image/upload/v1761711923/megags_ijphk3.png\"\n        }\n    ],\n    \"dateTime\": \"2025-10-31T06:16:11.173Z\",\n    \"messageConstants\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "get-cinema-clusters-by-system",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{capstone}}QuanLyRap/LayThongTinCumRapTheoHeThong/4",
+									"host": [
+										"{{capstone}}QuanLyRap"
+									],
+									"path": [
+										"LayThongTinCumRapTheoHeThong",
+										"4"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{capstone}}QuanLyRap/LayThongTinCumRapTheoHeThong/100",
+											"host": [
+												"{{capstone}}QuanLyRap"
+											],
+											"path": [
+												"LayThongTinCumRapTheoHeThong",
+												"100"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "166"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"a6-ltZlj3SotmfXE7h2UWv1eyT0tcE\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 31 Oct 2025 06:16:46 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Not Found\",\n    \"content\": \"Không tìm thấy hệ thống rạp với mã 100\",\n    \"dateTime\": \"2025-10-31T06:16:46.459Z\",\n    \"messageConstants\": null\n}"
+								},
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{capstone}}QuanLyRap/LayThongTinCumRapTheoHeThong/5",
+											"host": [
+												"{{capstone}}QuanLyRap"
+											],
+											"path": [
+												"LayThongTinCumRapTheoHeThong",
+												"5"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "498"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1f2-DosFohhp2ZgE55WlVle2jBPQQ50\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 31 Oct 2025 06:17:07 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Xử lý thành công!\",\n    \"content\": [\n        {\n            \"ma_cum_rap\": 8,\n            \"ten_cum_rap\": \"Lotte Cinema - Cantavil\",\n            \"dia_chi\": \"L3-Cantavil, 1 Song Hành, P. An Phú, Q.2, TP.HCM\",\n            \"rap_phim\": [\n                {\n                    \"ma_rap\": 39,\n                    \"ten_rap\": \"Rạp 1\"\n                },\n                {\n                    \"ma_rap\": 40,\n                    \"ten_rap\": \"Rạp 2\"\n                },\n                {\n                    \"ma_rap\": 41,\n                    \"ten_rap\": \"Rạp 3\"\n                },\n                {\n                    \"ma_rap\": 42,\n                    \"ten_rap\": \"Rạp 4\"\n                },\n                {\n                    \"ma_rap\": 43,\n                    \"ten_rap\": \"Rạp 5\"\n                },\n                {\n                    \"ma_rap\": 44,\n                    \"ten_rap\": \"Rạp 6\"\n                },\n                {\n                    \"ma_rap\": 45,\n                    \"ten_rap\": \"Rạp 7\"\n                }\n            ]\n        }\n    ],\n    \"dateTime\": \"2025-10-31T06:17:07.971Z\",\n    \"messageConstants\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "get-showtimes-by-movie Copy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{capstone}}QuanLyRap/LayThongTinLichChieuHeThongRap?ma_phim=21",
+									"host": [
+										"{{capstone}}QuanLyRap"
+									],
+									"path": [
+										"LayThongTinLichChieuHeThongRap"
+									],
+									"query": [
+										{
+											"key": "ma_phim",
+											"value": "21"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{capstone}}QuanLyRap/LayThongTinLichChieuHeThongRap?ma_phim=21",
+											"host": [
+												"{{capstone}}QuanLyRap"
+											],
+											"path": [
+												"LayThongTinLichChieuHeThongRap"
+											],
+											"query": [
+												{
+													"key": "ma_phim",
+													"value": "21"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1897"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"769-rSSeImyDipr7Q0qnf2cDeSIpLHQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 31 Oct 2025 06:23:49 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Xử lý thành công!\",\n    \"content\": {\n        \"message\": \"Showtimes retrieved successfully\",\n        \"data\": [\n            {\n                \"ma_lich_chieu\": 1,\n                \"ma_rap\": 1,\n                \"ma_phim\": 21,\n                \"ngay_gio_chieu\": \"2025-11-01T18:00:00.000Z\",\n                \"gia_ve\": 100000,\n                \"createdAt\": \"2025-10-29T11:57:30.000Z\",\n                \"updatedAt\": \"2025-10-29T11:57:30.000Z\",\n                \"deletedAt\": null,\n                \"Phim\": {\n                    \"ten_phim\": \"Lật mặt 48h\",\n                    \"hinh_anh\": \"https://www.cgv.vn/media/catalog/product/cache/1/image/c5f0a1eff4c394a251036189ccddaacd/p/o/poster_lat_mat_4_160421_1_.jpg\"\n                },\n                \"RapPhim\": {\n                    \"ma_rap\": 1,\n                    \"ten_rap\": \"Rạp 1\",\n                    \"ma_cum_rap\": 1,\n                    \"createdAt\": \"2025-10-29T05:31:20.000Z\",\n                    \"updatedAt\": \"2025-10-29T05:31:20.000Z\",\n                    \"deletedAt\": null,\n                    \"CumRap\": {\n                        \"ma_cum_rap\": 1,\n                        \"ten_cum_rap\": \"BHD Star Cineplex - Vincom Thảo Điền\",\n                        \"dia_chi\": \"L5-Megamall, 159 Xa Lộ Hà Nội, P. Thảo Điền, Q.2, TP.HCM\",\n                        \"ma_he_thong_rap\": 1,\n                        \"createdAt\": \"2025-10-29T05:00:50.000Z\",\n                        \"updatedAt\": \"2025-10-29T05:00:50.000Z\",\n                        \"deletedAt\": null,\n                        \"HeThongRap\": {\n                            \"ten_he_thong_rap\": \"BHD Star Cineplex\"\n                        }\n                    }\n                }\n            },\n            {\n                \"ma_lich_chieu\": 2,\n                \"ma_rap\": 1,\n                \"ma_phim\": 21,\n                \"ngay_gio_chieu\": \"2025-12-01T18:00:00.000Z\",\n                \"gia_ve\": 200000,\n                \"createdAt\": \"2025-10-30T06:35:40.000Z\",\n                \"updatedAt\": \"2025-10-30T06:35:40.000Z\",\n                \"deletedAt\": null,\n                \"Phim\": {\n                    \"ten_phim\": \"Lật mặt 48h\",\n                    \"hinh_anh\": \"https://www.cgv.vn/media/catalog/product/cache/1/image/c5f0a1eff4c394a251036189ccddaacd/p/o/poster_lat_mat_4_160421_1_.jpg\"\n                },\n                \"RapPhim\": {\n                    \"ma_rap\": 1,\n                    \"ten_rap\": \"Rạp 1\",\n                    \"ma_cum_rap\": 1,\n                    \"createdAt\": \"2025-10-29T05:31:20.000Z\",\n                    \"updatedAt\": \"2025-10-29T05:31:20.000Z\",\n                    \"deletedAt\": null,\n                    \"CumRap\": {\n                        \"ma_cum_rap\": 1,\n                        \"ten_cum_rap\": \"BHD Star Cineplex - Vincom Thảo Điền\",\n                        \"dia_chi\": \"L5-Megamall, 159 Xa Lộ Hà Nội, P. Thảo Điền, Q.2, TP.HCM\",\n                        \"ma_he_thong_rap\": 1,\n                        \"createdAt\": \"2025-10-29T05:00:50.000Z\",\n                        \"updatedAt\": \"2025-10-29T05:00:50.000Z\",\n                        \"deletedAt\": null,\n                        \"HeThongRap\": {\n                            \"ten_he_thong_rap\": \"BHD Star Cineplex\"\n                        }\n                    }\n                }\n            }\n        ]\n    },\n    \"dateTime\": \"2025-10-31T06:23:49.027Z\",\n    \"messageConstants\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "get-showtimes-by-theater Copy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{capstone}}QuanLyRap/LayThongTinLichChieuPhim?ma_rap=1",
+									"host": [
+										"{{capstone}}QuanLyRap"
+									],
+									"path": [
+										"LayThongTinLichChieuPhim"
+									],
+									"query": [
+										{
+											"key": "ma_rap",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{capstone}}QuanLyRap/LayThongTinLichChieuPhim?ma_rap=1",
+											"host": [
+												"{{capstone}}QuanLyRap"
+											],
+											"path": [
+												"LayThongTinLichChieuPhim"
+											],
+											"query": [
+												{
+													"key": "ma_rap",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1897"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"769-elfXwXzud/JWXWtF2FUpmqV2X0I\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 31 Oct 2025 06:23:18 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Xử lý thành công!\",\n    \"content\": {\n        \"message\": \"Showtimes retrieved successfully\",\n        \"data\": [\n            {\n                \"ma_lich_chieu\": 1,\n                \"ma_rap\": 1,\n                \"ma_phim\": 21,\n                \"ngay_gio_chieu\": \"2025-11-01T18:00:00.000Z\",\n                \"gia_ve\": 100000,\n                \"createdAt\": \"2025-10-29T11:57:30.000Z\",\n                \"updatedAt\": \"2025-10-29T11:57:30.000Z\",\n                \"deletedAt\": null,\n                \"Phim\": {\n                    \"ten_phim\": \"Lật mặt 48h\",\n                    \"hinh_anh\": \"https://www.cgv.vn/media/catalog/product/cache/1/image/c5f0a1eff4c394a251036189ccddaacd/p/o/poster_lat_mat_4_160421_1_.jpg\"\n                },\n                \"RapPhim\": {\n                    \"ma_rap\": 1,\n                    \"ten_rap\": \"Rạp 1\",\n                    \"ma_cum_rap\": 1,\n                    \"createdAt\": \"2025-10-29T05:31:20.000Z\",\n                    \"updatedAt\": \"2025-10-29T05:31:20.000Z\",\n                    \"deletedAt\": null,\n                    \"CumRap\": {\n                        \"ma_cum_rap\": 1,\n                        \"ten_cum_rap\": \"BHD Star Cineplex - Vincom Thảo Điền\",\n                        \"dia_chi\": \"L5-Megamall, 159 Xa Lộ Hà Nội, P. Thảo Điền, Q.2, TP.HCM\",\n                        \"ma_he_thong_rap\": 1,\n                        \"createdAt\": \"2025-10-29T05:00:50.000Z\",\n                        \"updatedAt\": \"2025-10-29T05:00:50.000Z\",\n                        \"deletedAt\": null,\n                        \"HeThongRap\": {\n                            \"ten_he_thong_rap\": \"BHD Star Cineplex\"\n                        }\n                    }\n                }\n            },\n            {\n                \"ma_lich_chieu\": 2,\n                \"ma_rap\": 1,\n                \"ma_phim\": 21,\n                \"ngay_gio_chieu\": \"2025-12-01T18:00:00.000Z\",\n                \"gia_ve\": 200000,\n                \"createdAt\": \"2025-10-30T06:35:40.000Z\",\n                \"updatedAt\": \"2025-10-30T06:35:40.000Z\",\n                \"deletedAt\": null,\n                \"Phim\": {\n                    \"ten_phim\": \"Lật mặt 48h\",\n                    \"hinh_anh\": \"https://www.cgv.vn/media/catalog/product/cache/1/image/c5f0a1eff4c394a251036189ccddaacd/p/o/poster_lat_mat_4_160421_1_.jpg\"\n                },\n                \"RapPhim\": {\n                    \"ma_rap\": 1,\n                    \"ten_rap\": \"Rạp 1\",\n                    \"ma_cum_rap\": 1,\n                    \"createdAt\": \"2025-10-29T05:31:20.000Z\",\n                    \"updatedAt\": \"2025-10-29T05:31:20.000Z\",\n                    \"deletedAt\": null,\n                    \"CumRap\": {\n                        \"ma_cum_rap\": 1,\n                        \"ten_cum_rap\": \"BHD Star Cineplex - Vincom Thảo Điền\",\n                        \"dia_chi\": \"L5-Megamall, 159 Xa Lộ Hà Nội, P. Thảo Điền, Q.2, TP.HCM\",\n                        \"ma_he_thong_rap\": 1,\n                        \"createdAt\": \"2025-10-29T05:00:50.000Z\",\n                        \"updatedAt\": \"2025-10-29T05:00:50.000Z\",\n                        \"deletedAt\": null,\n                        \"HeThongRap\": {\n                            \"ten_he_thong_rap\": \"BHD Star Cineplex\"\n                        }\n                    }\n                }\n            }\n        ]\n    },\n    \"dateTime\": \"2025-10-31T06:23:18.956Z\",\n    \"messageConstants\": null\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "movie",
+					"item": [
+						{
+							"name": "get-movie-list",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"//{{capstone}}QuanLyPhim/LayDanhSachPhim?tenPhim=Mưa"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{capstone}}QuanLyPhim/LayDanhSachPhim",
+									"host": [
+										"{{capstone}}QuanLyPhim"
+									],
+									"path": [
+										"LayDanhSachPhim"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-movie-with-filter",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"//{{capstone}}QuanLyPhim/LayDanhSachPhimPhanTrang?page=1&limit=10&tenPhim=Siêu&dangChieu=true&hot=true"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{capstone}}QuanLyPhim/LayDanhSachPhimPhanTrang?page=1&limit=10&tenPhim=Siêu&dangChieu=true&hot=true",
+									"host": [
+										"{{capstone}}QuanLyPhim"
+									],
+									"path": [
+										"LayDanhSachPhimPhanTrang"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "tenPhim",
+											"value": "Siêu"
+										},
+										{
+											"key": "dangChieu",
+											"value": "true"
+										},
+										{
+											"key": "hot",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-moive-info",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{capstone}}QuanLyPhim/LayThongTinPhim/39",
+									"host": [
+										"{{capstone}}QuanLyPhim"
+									],
+									"path": [
+										"LayThongTinPhim",
+										"39"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-movie-list-by-date",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"//{{capstone}}QuanLyPhim/LayDanhSachPhimTheoNgay?tuNgay=2023-01-01&denNgay=2024-10-10&page=1&limit=10"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{capstone}}QuanLyPhim/LayDanhSachPhimTheoNgay?tuNgay=2023-01-01&denNgay=2024-10-10&page=1&limit=10",
+									"host": [
+										"{{capstone}}QuanLyPhim"
+									],
+									"path": [
+										"LayDanhSachPhimTheoNgay"
+									],
+									"query": [
+										{
+											"key": "tuNgay",
+											"value": "2023-01-01"
+										},
+										{
+											"key": "denNgay",
+											"value": "2024-10-10"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-banner",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{capstone}}QuanLyPhim/LayDanhSachBanner",
+									"host": [
+										"{{capstone}}QuanLyPhim"
+									],
+									"path": [
+										"LayDanhSachBanner"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "booking",
+					"item": [
+						{
+							"name": "booking",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"ma_lich_chieu\": 4,\r\n  \"danh_sach_ma_ghe\": [101, 102]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{capstone}}QuanLyDatVe/DatVe",
+									"host": [
+										"{{capstone}}QuanLyDatVe"
+									],
+									"path": [
+										"DatVe"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-room-seats",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{capstone}}QuanLyDatVe/LayDanhSachPhongVe?maLichChieu=4",
+									"host": [
+										"{{capstone}}QuanLyDatVe"
+									],
+									"path": [
+										"LayDanhSachPhongVe"
+									],
+									"query": [
+										{
+											"key": "maLichChieu",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "add-account",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"ho_ten\": \"add acount five\",\r\n  \"email\": \"Admin5@example.com\",\r\n  \"so_dt\": \"0123456789\",\r\n  \"mat_khau\": \"Admin123!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{capstone}}QuanLyNguoiDung/ThemNguoiDung",
+									"host": [
+										"{{capstone}}QuanLyNguoiDung"
+									],
+									"path": [
+										"ThemNguoiDung"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"ho_ten\": \"add acount three\",\r\n  \"email\": \"Admin2@example.com\",\r\n  \"so_dt\": \"0123456789\",\r\n  \"mat_khau\": \"Admin123!\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{capstone}}QuanLyNguoiDung/ThemNguoiDung",
+											"host": [
+												"{{capstone}}QuanLyNguoiDung"
+											],
+											"path": [
+												"ThemNguoiDung"
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "164"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"a4-8PzFzgmPlQfAW0Xt+6j+R0TP1cQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 31 Oct 2025 04:57:50 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 403,\n    \"message\": \"Không đủ quyền truy cập!\",\n    \"content\": \"Vai trò không phù hợp\",\n    \"dateTime\": \"2025-10-31T04:57:50.513Z\",\n    \"messageConstants\": null\n}"
+								},
+								{
+									"name": "Conflict",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"ho_ten\": \"add acount three\",\r\n  \"email\": \"Admin2@example.com\",\r\n  \"so_dt\": \"0123456789\",\r\n  \"mat_khau\": \"Admin123!\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{capstone}}QuanLyNguoiDung/ThemNguoiDung",
+											"host": [
+												"{{capstone}}QuanLyNguoiDung"
+											],
+											"path": [
+												"ThemNguoiDung"
+											]
+										}
+									},
+									"status": "Conflict",
+									"code": 409,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "136"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"88-WUbHdUkUydbHCnrAMIcX3cLkWxw\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 31 Oct 2025 05:04:57 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 409,\n    \"message\": \"Conflict\",\n    \"content\": \"Email đã tồn tại\",\n    \"dateTime\": \"2025-10-31T05:04:57.053Z\",\n    \"messageConstants\": null\n}"
+								},
+								{
+									"name": "Created",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"ho_ten\": \"add acount three\",\r\n  \"email\": \"Admin3@example.com\",\r\n  \"so_dt\": \"0123456789\",\r\n  \"mat_khau\": \"Admin123!\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{capstone}}QuanLyNguoiDung/ThemNguoiDung",
+											"host": [
+												"{{capstone}}QuanLyNguoiDung"
+											],
+											"path": [
+												"ThemNguoiDung"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJpYXQiOjE3NjE4ODcxMjUsImV4cCI6MTc2MjQ5MTkyNX0.S583Ss0IgX_C_pZqUHA7hX-KAxU1TOkF6zJb08ZMSFI; Max-Age=604800; Path=/; Expires=Fri, 07 Nov 2025 05:05:25 GMT; HttpOnly; SameSite=Strict"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "484"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1e4-uAZZLQurBuvV40mTAR22/aj+pbE\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 31 Oct 2025 05:05:25 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 201,\n    \"message\": \"Xử lý thành công!\",\n    \"content\": {\n        \"message\": \"Tài khoản ADMIN được tạo thành công\",\n        \"data\": {\n            \"user\": {\n                \"tai_khoan\": 24,\n                \"ho_ten\": \"add acount three\",\n                \"email\": \"Admin3@example.com\",\n                \"so_dt\": \"0123456789\",\n                \"loai_nguoi_dung\": \"ADMIN\"\n            },\n            \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJpYXQiOjE3NjE4ODcxMjUsImV4cCI6MTc2MTg5MDcyNX0.lA22Ea1y6IDfcOgjKH-YZm6JpyPo2e-qJxcZt3K_Kko\"\n        }\n    },\n    \"dateTime\": \"2025-10-31T05:05:25.647Z\",\n    \"messageConstants\": null\n}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"ho_ten\": \"add acount four\",\r\n  \"email\": \"Admin3@example.com\",\r\n  \"so_dt\": \"0123456789\",\r\n  \"mat_khau\": \"Admin123\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{capstone}}QuanLyNguoiDung/ThemNguoiDung",
+											"host": [
+												"{{capstone}}QuanLyNguoiDung"
+											],
+											"path": [
+												"ThemNguoiDung"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "270"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"10e-7Ouv4pwdyREf3gXIk/P8GlDMpHo\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 31 Oct 2025 05:59:47 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 400,\n    \"message\": \"Dữ liệu đầu vào không hợp lệ\",\n    \"content\": [\n        \"Mật khẩu phải chứa ít nhất một chữ hoa, một chữ thường, một số và một ký tự đặc biệt\"\n    ],\n    \"dateTime\": \"2025-10-31T05:59:47.292Z\",\n    \"messageConstants\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "get-user-types",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{capstone}}QuanLyNguoiDung/LayDanhSachLoaiNguoiDung",
+									"host": [
+										"{{capstone}}QuanLyNguoiDung"
+									],
+									"path": [
+										"LayDanhSachLoaiNguoiDung"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"email\": \"userF@example.com\",\r\n  \"mat_khau\": \"Pass123!\"\r\n \r\n}"
+										},
+										"url": {
+											"raw": "{{capstone}}QuanLyNguoiDung/LayDanhSachLoaiNguoiDung",
+											"host": [
+												"{{capstone}}QuanLyNguoiDung"
+											],
+											"path": [
+												"LayDanhSachLoaiNguoiDung"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "142"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"8e-nrGrx1WIuf6zZeHjtKUoKiTvygI\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 31 Oct 2025 05:11:36 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Xử lý thành công!\",\n    \"content\": [\n        \"ADMIN\",\n        \"USER\"\n    ],\n    \"dateTime\": \"2025-10-31T05:11:36.574Z\",\n    \"messageConstants\": null\n}"
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"email\": \"userF@example.com\",\r\n  \"mat_khau\": \"Pass123!\"\r\n \r\n}"
+										},
+										"url": {
+											"raw": "{{capstone}}QuanLyNguoiDung/LayDanhSachLoaiNguoiDung",
+											"host": [
+												"{{capstone}}QuanLyNguoiDung"
+											],
+											"path": [
+												"LayDanhSachLoaiNguoiDung"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "150"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"96-oqCgWEQG9VFaHO8js5GrFmP+9Fk\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 31 Oct 2025 05:14:10 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 401,\n    \"message\": \"Unauthorized\",\n    \"content\": \"Không được phép truy cập\",\n    \"dateTime\": \"2025-10-31T05:14:10.863Z\",\n    \"messageConstants\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "get-user-list",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{capstone}}QuanLyNguoiDung/LayDanhSachNguoiDung",
+									"host": [
+										"{{capstone}}QuanLyNguoiDung"
+									],
+									"path": [
+										"LayDanhSachNguoiDung"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{capstone}}QuanLyNguoiDung/LayDanhSachNguoiDung",
+											"host": [
+												"{{capstone}}QuanLyNguoiDung"
+											],
+											"path": [
+												"LayDanhSachNguoiDung"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "2104"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"838-LpUKsxMFY7EMy59Yh2DAZ2ZotW4\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 31 Oct 2025 05:16:29 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Xử lý thành công!\",\n    \"content\": [\n        {\n            \"tai_khoan\": 7,\n            \"ho_ten\": \"Nguyen Van B\",\n            \"email\": \"userB@example.com\",\n            \"so_dt\": \"0123456789\",\n            \"loai_nguoi_dung\": \"USER\"\n        },\n        {\n            \"tai_khoan\": 8,\n            \"ho_ten\": \"Nguyen Van C\",\n            \"email\": \"userC@example.com\",\n            \"so_dt\": \"0123456789\",\n            \"loai_nguoi_dung\": \"USER\"\n        },\n        {\n            \"tai_khoan\": 9,\n            \"ho_ten\": \"Nguyen Van D\",\n            \"email\": \"userD@example.com\",\n            \"so_dt\": \"0123456789\",\n            \"loai_nguoi_dung\": \"USER\"\n        },\n        {\n            \"tai_khoan\": 11,\n            \"ho_ten\": \"Nguyen Van F\",\n            \"email\": \"userF@example.com\",\n            \"so_dt\": \"0123456789\",\n            \"loai_nguoi_dung\": \"USER\"\n        },\n        {\n            \"tai_khoan\": 12,\n            \"ho_ten\": \"Nguyen Van G\",\n            \"email\": \"userG@example.com\",\n            \"so_dt\": \"0123456789\",\n            \"loai_nguoi_dung\": \"USER\"\n        },\n        {\n            \"tai_khoan\": 13,\n            \"ho_ten\": \"Nguyen Van J\",\n            \"email\": \"userJ@example.com\",\n            \"so_dt\": \"0123456789\",\n            \"loai_nguoi_dung\": \"USER\"\n        },\n        {\n            \"tai_khoan\": 14,\n            \"ho_ten\": \"Admin Test\",\n            \"email\": \"admin@example.com\",\n            \"so_dt\": \"0123456789\",\n            \"loai_nguoi_dung\": \"ADMIN\"\n        },\n        {\n            \"tai_khoan\": 15,\n            \"ho_ten\": \"add acount two\",\n            \"email\": \"Admin1@example.com\",\n            \"so_dt\": \"0123456789\",\n            \"loai_nguoi_dung\": \"ADMIN\"\n        },\n        {\n            \"tai_khoan\": 16,\n            \"ho_ten\": \"add acount two\",\n            \"email\": \"Admin2@example.com\",\n            \"so_dt\": \"0123456789\",\n            \"loai_nguoi_dung\": \"ADMIN\"\n        },\n        {\n            \"tai_khoan\": 17,\n            \"ho_ten\": \"Nguyen Van K\",\n            \"email\": \"userK@example.com\",\n            \"so_dt\": \"0123456789\",\n            \"loai_nguoi_dung\": \"USER\"\n        },\n        {\n            \"tai_khoan\": 18,\n            \"ho_ten\": \"Nguyen Van L\",\n            \"email\": \"userL@example.com\",\n            \"so_dt\": \"0123456789\",\n            \"loai_nguoi_dung\": \"USER\"\n        },\n        {\n            \"tai_khoan\": 19,\n            \"ho_ten\": \"Nguyen Van Z\",\n            \"email\": \"userZ@example.com\",\n            \"so_dt\": \"0123456789\",\n            \"loai_nguoi_dung\": \"USER\"\n        },\n        {\n            \"tai_khoan\": 20,\n            \"ho_ten\": \"Nguyen van x\",\n            \"email\": \"userx@example.com\",\n            \"so_dt\": \"0123456789\",\n            \"loai_nguoi_dung\": \"USER\"\n        },\n        {\n            \"tai_khoan\": 21,\n            \"ho_ten\": \"Nguyen Van A\",\n            \"email\": \"userA@example.com\",\n            \"so_dt\": \"0123456789\",\n            \"loai_nguoi_dung\": \"USER\"\n        },\n        {\n            \"tai_khoan\": 22,\n            \"ho_ten\": \"Nguyen Van A\",\n            \"email\": \"userAA@example.com\",\n            \"so_dt\": \"0123456789\",\n            \"loai_nguoi_dung\": \"USER\"\n        },\n        {\n            \"tai_khoan\": 23,\n            \"ho_ten\": \"Nguyen Van B_updated\",\n            \"email\": \"userAAAA@example.com\",\n            \"so_dt\": \"0123456789\",\n            \"loai_nguoi_dung\": \"USER\"\n        },\n        {\n            \"tai_khoan\": 24,\n            \"ho_ten\": \"add acount three\",\n            \"email\": \"Admin3@example.com\",\n            \"so_dt\": \"0123456789\",\n            \"loai_nguoi_dung\": \"ADMIN\"\n        }\n    ],\n    \"dateTime\": \"2025-10-31T05:16:29.523Z\",\n    \"messageConstants\": null\n}"
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{capstone}}QuanLyNguoiDung/LayDanhSachNguoiDung",
+											"host": [
+												"{{capstone}}QuanLyNguoiDung"
+											],
+											"path": [
+												"LayDanhSachNguoiDung"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "150"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"96-HUz0ut9cWIT6tgiW7t6vYyg7L+g\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 31 Oct 2025 05:16:40 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 401,\n    \"message\": \"Unauthorized\",\n    \"content\": \"Không được phép truy cập\",\n    \"dateTime\": \"2025-10-31T05:16:40.911Z\",\n    \"messageConstants\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "get-user-list-paginated",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{capstone}}QuanLyNguoiDung/LayDanhSachNguoiDungPhanTrang?page=2&pageSize=5",
+									"host": [
+										"{{capstone}}QuanLyNguoiDung"
+									],
+									"path": [
+										"LayDanhSachNguoiDungPhanTrang"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "2"
+										},
+										{
+											"key": "pageSize",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{capstone}}QuanLyNguoiDung/LayDanhSachNguoiDungPhanTrang?page=2&pageSize=2",
+											"host": [
+												"{{capstone}}QuanLyNguoiDung"
+											],
+											"path": [
+												"LayDanhSachNguoiDungPhanTrang"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "2"
+												},
+												{
+													"key": "pageSize",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "538"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"21a-Q3/5tIMXlk4GOcSUly2AR76FLpU\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 31 Oct 2025 05:19:20 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Xử lý thành công!\",\n    \"content\": {\n        \"data\": [\n            {\n                \"tai_khoan\": 22,\n                \"ho_ten\": \"Nguyen Van A\",\n                \"email\": \"userAA@example.com\",\n                \"so_dt\": \"0123456789\",\n                \"loai_nguoi_dung\": \"USER\",\n                \"createdAt\": \"2025-10-31T04:36:50.000Z\"\n            },\n            {\n                \"tai_khoan\": 21,\n                \"ho_ten\": \"Nguyen Van A\",\n                \"email\": \"userA@example.com\",\n                \"so_dt\": \"0123456789\",\n                \"loai_nguoi_dung\": \"USER\",\n                \"createdAt\": \"2025-10-31T04:35:58.000Z\"\n            }\n        ],\n        \"pagination\": {\n            \"page\": 2,\n            \"pageSize\": 2,\n            \"total\": 17,\n            \"totalPages\": 9,\n            \"hasNext\": true,\n            \"hasPrev\": true\n        }\n    },\n    \"dateTime\": \"2025-10-31T05:19:20.546Z\",\n    \"messageConstants\": null\n}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{capstone}}QuanLyNguoiDung/LayDanhSachNguoiDungPhanTrang?page=2&pageSize=1000",
+											"host": [
+												"{{capstone}}QuanLyNguoiDung"
+											],
+											"path": [
+												"LayDanhSachNguoiDungPhanTrang"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "2"
+												},
+												{
+													"key": "pageSize",
+													"value": "1000"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "186"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"ba-cLaMAMNIFyByhNl4nmddzSx1rZ8\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 31 Oct 2025 05:20:05 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 400,\n    \"message\": \"Dữ liệu đầu vào không hợp lệ\",\n    \"content\": [\n        \"pageSize must not be greater than 100\"\n    ],\n    \"dateTime\": \"2025-10-31T05:20:05.445Z\",\n    \"messageConstants\": null\n}"
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{capstone}}QuanLyNguoiDung/LayDanhSachNguoiDungPhanTrang?page=2&pageSize=3",
+											"host": [
+												"{{capstone}}QuanLyNguoiDung"
+											],
+											"path": [
+												"LayDanhSachNguoiDungPhanTrang"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "2"
+												},
+												{
+													"key": "pageSize",
+													"value": "3"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "150"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"96-OouK1RGw7lBNPR0hFcnbomDIP4c\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 31 Oct 2025 05:22:53 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 401,\n    \"message\": \"Unauthorized\",\n    \"content\": \"Không được phép truy cập\",\n    \"dateTime\": \"2025-10-31T05:22:53.266Z\",\n    \"messageConstants\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "search-users-pag",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{capstone}}QuanLyNguoiDung/TimKiemNguoiDungPhanTrang?keyword=add acount two&size=1&pageSize=5",
+									"host": [
+										"{{capstone}}QuanLyNguoiDung"
+									],
+									"path": [
+										"TimKiemNguoiDungPhanTrang"
+									],
+									"query": [
+										{
+											"key": "keyword",
+											"value": "add acount two"
+										},
+										{
+											"key": "size",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "loai_nguoi_dung",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{capstone}}QuanLyNguoiDung/TimKiemNguoiDungPhanTrang?keyword=ADMIN&size=1&pageSize=5",
+											"host": [
+												"{{capstone}}QuanLyNguoiDung"
+											],
+											"path": [
+												"TimKiemNguoiDungPhanTrang"
+											],
+											"query": [
+												{
+													"key": "keyword",
+													"value": "ADMIN"
+												},
+												{
+													"key": "size",
+													"value": "1"
+												},
+												{
+													"key": "pageSize",
+													"value": "5"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "859"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"35b-C1zQ3jRfewIJt6hppSNkp/TOL9Y\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 31 Oct 2025 05:25:47 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Xử lý thành công!\",\n    \"content\": {\n        \"data\": [\n            {\n                \"tai_khoan\": 24,\n                \"ho_ten\": \"add acount three\",\n                \"email\": \"Admin3@example.com\",\n                \"so_dt\": \"0123456789\",\n                \"loai_nguoi_dung\": \"ADMIN\",\n                \"createdAt\": \"2025-10-31T05:05:25.000Z\"\n            },\n            {\n                \"tai_khoan\": 16,\n                \"ho_ten\": \"add acount two\",\n                \"email\": \"Admin2@example.com\",\n                \"so_dt\": \"0123456789\",\n                \"loai_nguoi_dung\": \"ADMIN\",\n                \"createdAt\": \"2025-10-28T15:01:18.000Z\"\n            },\n            {\n                \"tai_khoan\": 15,\n                \"ho_ten\": \"add acount two\",\n                \"email\": \"Admin1@example.com\",\n                \"so_dt\": \"0123456789\",\n                \"loai_nguoi_dung\": \"ADMIN\",\n                \"createdAt\": \"2025-10-28T14:57:57.000Z\"\n            },\n            {\n                \"tai_khoan\": 14,\n                \"ho_ten\": \"Admin Test\",\n                \"email\": \"admin@example.com\",\n                \"so_dt\": \"0123456789\",\n                \"loai_nguoi_dung\": \"ADMIN\",\n                \"createdAt\": \"2025-10-28T13:00:43.000Z\"\n            }\n        ],\n        \"pagination\": {\n            \"page\": 1,\n            \"pageSize\": 5,\n            \"total\": 4,\n            \"totalPages\": 1,\n            \"hasNext\": false,\n            \"hasPrev\": false\n        }\n    },\n    \"dateTime\": \"2025-10-31T05:25:47.231Z\",\n    \"messageConstants\": null\n}"
+								},
+								{
+									"name": "email",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{capstone}}QuanLyNguoiDung/TimKiemNguoiDungPhanTrang?keyword=userx&size=1&pageSize=5",
+											"host": [
+												"{{capstone}}QuanLyNguoiDung"
+											],
+											"path": [
+												"TimKiemNguoiDungPhanTrang"
+											],
+											"query": [
+												{
+													"key": "keyword",
+													"value": "userx"
+												},
+												{
+													"key": "size",
+													"value": "1"
+												},
+												{
+													"key": "pageSize",
+													"value": "5"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "384"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"180-iQZjOOuHcwHJURbtEfVGxRREsy4\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 31 Oct 2025 05:28:47 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Xử lý thành công!\",\n    \"content\": {\n        \"data\": [\n            {\n                \"tai_khoan\": 20,\n                \"ho_ten\": \"Nguyen van x\",\n                \"email\": \"userx@example.com\",\n                \"so_dt\": \"0123456789\",\n                \"loai_nguoi_dung\": \"USER\",\n                \"createdAt\": \"2025-10-31T04:27:12.000Z\"\n            }\n        ],\n        \"pagination\": {\n            \"page\": 1,\n            \"pageSize\": 5,\n            \"total\": 1,\n            \"totalPages\": 1,\n            \"hasNext\": false,\n            \"hasPrev\": false\n        }\n    },\n    \"dateTime\": \"2025-10-31T05:28:47.543Z\",\n    \"messageConstants\": null\n}"
+								},
+								{
+									"name": "ho_ten",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{capstone}}QuanLyNguoiDung/TimKiemNguoiDungPhanTrang?keyword=n A&size=1&pageSize=5",
+											"host": [
+												"{{capstone}}QuanLyNguoiDung"
+											],
+											"path": [
+												"TimKiemNguoiDungPhanTrang"
+											],
+											"query": [
+												{
+													"key": "keyword",
+													"value": "n A"
+												},
+												{
+													"key": "size",
+													"value": "1"
+												},
+												{
+													"key": "pageSize",
+													"value": "5"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "539"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"21b-YrPApbJxqUrtLczVUfZesqmrj1M\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 31 Oct 2025 05:56:08 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Xử lý thành công!\",\n    \"content\": {\n        \"data\": [\n            {\n                \"tai_khoan\": 22,\n                \"ho_ten\": \"Nguyen Van A\",\n                \"email\": \"userAA@example.com\",\n                \"so_dt\": \"0123456789\",\n                \"loai_nguoi_dung\": \"USER\",\n                \"createdAt\": \"2025-10-31T04:36:50.000Z\"\n            },\n            {\n                \"tai_khoan\": 21,\n                \"ho_ten\": \"Nguyen Van A\",\n                \"email\": \"userA@example.com\",\n                \"so_dt\": \"0123456789\",\n                \"loai_nguoi_dung\": \"USER\",\n                \"createdAt\": \"2025-10-31T04:35:58.000Z\"\n            }\n        ],\n        \"pagination\": {\n            \"page\": 1,\n            \"pageSize\": 5,\n            \"total\": 2,\n            \"totalPages\": 1,\n            \"hasNext\": false,\n            \"hasPrev\": false\n        }\n    },\n    \"dateTime\": \"2025-10-31T05:56:08.136Z\",\n    \"messageConstants\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "search-users-no-pag",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{capstone}}QuanLyNguoiDung/TimKiemNguoiDung?keyword=add acount two",
+									"host": [
+										"{{capstone}}QuanLyNguoiDung"
+									],
+									"path": [
+										"TimKiemNguoiDung"
+									],
+									"query": [
+										{
+											"key": "keyword",
+											"value": "add acount two"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "search-users-no-pag",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{capstone}}QuanLyNguoiDung/TimKiemNguoiDung?keyword=n A",
+											"host": [
+												"{{capstone}}QuanLyNguoiDung"
+											],
+											"path": [
+												"TimKiemNguoiDung"
+											],
+											"query": [
+												{
+													"key": "keyword",
+													"value": "n A"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "445"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1bd-0SEvAUrK8dPrE0awaG9pSl0ATdM\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 31 Oct 2025 05:57:25 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Xử lý thành công!\",\n    \"content\": {\n        \"data\": [\n            {\n                \"tai_khoan\": 22,\n                \"ho_ten\": \"Nguyen Van A\",\n                \"email\": \"userAA@example.com\",\n                \"so_dt\": \"0123456789\",\n                \"loai_nguoi_dung\": \"USER\",\n                \"createdAt\": \"2025-10-31T04:36:50.000Z\"\n            },\n            {\n                \"tai_khoan\": 21,\n                \"ho_ten\": \"Nguyen Van A\",\n                \"email\": \"userA@example.com\",\n                \"so_dt\": \"0123456789\",\n                \"loai_nguoi_dung\": \"USER\",\n                \"createdAt\": \"2025-10-31T04:35:58.000Z\"\n            }\n        ]\n    },\n    \"dateTime\": \"2025-10-31T05:57:25.660Z\",\n    \"messageConstants\": null\n}"
+								},
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{capstone}}QuanLyNguoiDung/TimKiemNguoiDung?keyword=n A",
+											"host": [
+												"{{capstone}}QuanLyNguoiDung"
+											],
+											"path": [
+												"TimKiemNguoiDung"
+											],
+											"query": [
+												{
+													"key": "keyword",
+													"value": "n A"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "445"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1bd-0SEvAUrK8dPrE0awaG9pSl0ATdM\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 31 Oct 2025 05:57:25 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Xử lý thành công!\",\n    \"content\": {\n        \"data\": [\n            {\n                \"tai_khoan\": 22,\n                \"ho_ten\": \"Nguyen Van A\",\n                \"email\": \"userAA@example.com\",\n                \"so_dt\": \"0123456789\",\n                \"loai_nguoi_dung\": \"USER\",\n                \"createdAt\": \"2025-10-31T04:36:50.000Z\"\n            },\n            {\n                \"tai_khoan\": 21,\n                \"ho_ten\": \"Nguyen Van A\",\n                \"email\": \"userA@example.com\",\n                \"so_dt\": \"0123456789\",\n                \"loai_nguoi_dung\": \"USER\",\n                \"createdAt\": \"2025-10-31T04:35:58.000Z\"\n            }\n        ]\n    },\n    \"dateTime\": \"2025-10-31T05:57:25.660Z\",\n    \"messageConstants\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "admin-update-user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n            \"tai_khoan\": 17,\r\n            \"ho_ten\": \"Nguyen Van V\",\r\n            \"email\": \"userV@example.com\",\r\n            \"so_dt\": \"0123456789\",\r\n            \"loai_nguoi_dung\": \"ADMIN\"\r\n        }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{capstone}}QuanLyNguoiDung/CapNhatThongTinNguoiDung/17",
+									"host": [
+										"{{capstone}}QuanLyNguoiDung"
+									],
+									"path": [
+										"CapNhatThongTinNguoiDung",
+										"17"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"tai_khoan\": 10,\r\n            \"ho_ten\": \"Nguyen Van E_upUser\",\r\n            \"email\": \"userEE@example.com\",\r\n            \"so_dt\": \"0123456789\",\r\n            \"loai_nguoi_dung\": \"USER\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{capstone}}QuanLyNguoiDung/CapNhatThongTinNguoiDung/10",
+											"host": [
+												"{{capstone}}QuanLyNguoiDung"
+											],
+											"path": [
+												"CapNhatThongTinNguoiDung",
+												"10"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "321"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"141-nPX2srRX8XHY1rudOulq6EQ22X8\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 31 Oct 2025 05:58:37 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Xử lý thành công!\",\n    \"content\": {\n        \"message\": \"Cập nhật thông tin người dùng thành công\",\n        \"data\": {\n            \"tai_khoan\": 10,\n            \"ho_ten\": \"Nguyen Van E_upUser\",\n            \"email\": \"userEE@example.com\",\n            \"so_dt\": \"0123456789\",\n            \"loai_nguoi_dung\": \"USER\"\n        }\n    },\n    \"dateTime\": \"2025-10-31T05:58:37.052Z\",\n    \"messageConstants\": null\n}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"tai_khoan\": 10,\r\n            \"ho_ten\": \"Nguyen Van E_upUser\",\r\n            \"email\": \"userEE@example.com\",\r\n            \"so_dt\": \"0123456789\",\r\n            \"loai_nguoi_dung\": \"user\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{capstone}}QuanLyNguoiDung/CapNhatThongTinNguoiDung/10",
+											"host": [
+												"{{capstone}}QuanLyNguoiDung"
+											],
+											"path": [
+												"CapNhatThongTinNguoiDung",
+												"10"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "188"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"bc-y+rSQjJWHmkUGIpyEvNIbaQWmus\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 31 Oct 2025 05:59:07 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 400,\n    \"message\": \"Dữ liệu đầu vào không hợp lệ\",\n    \"content\": [\n        \"Loại người dùng không hợp lệ\"\n    ],\n    \"dateTime\": \"2025-10-31T05:59:07.286Z\",\n    \"messageConstants\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "login-admin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const data = pm.response.json();\r",
+											"\r",
+											"pm.globals.set(\"accessToken\", data.content.data.accessToken);\r",
+											"\r",
+											"\r",
+											"// Lấy refreshToken từ cookie header\r",
+											"const setCookieHeader = pm.response.headers.get('Set-Cookie');\r",
+											"\r",
+											"if (setCookieHeader) {\r",
+											"    // Tìm refreshToken trong cookie string\r",
+											"    const cookieMatch = setCookieHeader.match(/refreshToken=([^;]+)/);\r",
+											"    \r",
+											"    if (cookieMatch && cookieMatch[1]) {\r",
+											"        const refreshToken = cookieMatch[1];\r",
+											"        pm.globals.set(\"refreshToken\", refreshToken);\r",
+											"        console.log(\" Đã lấy refreshToken từ cookie:\", refreshToken);\r",
+											"    } else {\r",
+											"        console.log(\"❌ Không tìm thấy refreshToken trong cookie\");\r",
+											"    }\r",
+											"} else {\r",
+											"    console.log(\"❌ Không có Set-Cookie header trong response\");\r",
+											"}\r",
+											"\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \r\n  \"email\": \"admin1@example.com\",\r\n  \"mat_khau\": \"Admin123!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{capstone}}QuanLyNguoiDung/DangNhap",
+									"host": [
+										"{{capstone}}QuanLyNguoiDung"
+									],
+									"path": [
+										"DangNhap"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"email\": \"user@example.com\",\r\n  \"mat_khau\": \"Pass123!\"\r\n \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{capstone}}users/login",
+											"host": [
+												"{{capstone}}users"
+											],
+											"path": [
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "628"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"274-CVfcELlgRtvJu4LrMQp8vMKfaR8\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 27 Oct 2025 09:33:35 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Xử lý thành công!\",\n    \"content\": {\n        \"message\": \"Đăng ký/Đăng nhập thành công\",\n        \"data\": {\n            \"user\": {\n                \"tai_khoan\": 3,\n                \"ho_ten\": \"Nguyen Van Az\",\n                \"email\": \"user@example.com\",\n                \"so_dt\": \"0123456789\",\n                \"loai_nguoi_dung\": \"USER\"\n            },\n            \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2MTU1NzYxNCwiZXhwIjoxNzYxNTYxMjE0fQ.bwZkmjRjsnkjEvdPiKiaHp900KxWGRjyWavD7PKY3_g\",\n            \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc2MTU1NzYxNCwiZXhwIjoxNzYyMTYyNDE0fQ.QxOgb-__hqfDt4KKt3Pf6l5ZGuUsQrEvW1VWWtZrkyE\"\n        }\n    },\n    \"dateTime\": \"2025-10-27T09:33:35.094Z\",\n    \"messageConstants\": null\n}"
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"email\": \"user@example.com\",\r\n  \"mat_khau\": \"Pass123\"\r\n \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{capstone}}users/login",
+											"host": [
+												"{{capstone}}users"
+											],
+											"path": [
+												"login"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "157"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"9d-KyHCoE6nceAhsC1WFCsumZdQBCU\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 27 Oct 2025 09:34:08 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 401,\n    \"message\": \"Unauthorized\",\n    \"content\": \"Email hoặc mật khẩu không đúng\",\n    \"dateTime\": \"2025-10-27T09:34:08.170Z\",\n    \"messageConstants\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "admin-delete-user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \r\n  \"email\": \"userF@example.com\",\r\n  \"mat_khau\": \"Pass123!\"\r\n}"
+								},
+								"url": {
+									"raw": "{{capstone}}QuanLyNguoiDung/XoaNguoiDung/17",
+									"host": [
+										"{{capstone}}QuanLyNguoiDung"
+									],
+									"path": [
+										"XoaNguoiDung",
+										"17"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "movie",
+					"item": [
+						{
+							"name": "create-movie",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "hinh_anh",
+											"type": "file",
+											"src": "/C:/Users/LENOVO/OneDrive/Hình ảnh/tron-ares-500_1760067381479 (1).jpg"
+										},
+										{
+											"key": "data",
+											"value": "{\"ten_phim\":\"Phim Mẫu Cơ Bản- test2\",\"trailer\":\"https://example.com/trailer-basic\",\"mo_ta\":\"Mô tả ngắn gọn về một bộ phim giả định.\",\"ngay_khoi_chieu\":\"2025-11-15\",\"danh_gia\":7,\"hot\":false,\"dang_chieu\":true,\"sap_chieu\":false}",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{capstone}}QuanLyPhim/ThemPhimUploadHinh",
+									"host": [
+										"{{capstone}}QuanLyPhim"
+									],
+									"path": [
+										"ThemPhimUploadHinh"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "hinh_anh",
+													"type": "file",
+													"src": "/C:/Users/LENOVO/OneDrive/Hình ảnh/tron-ares-500_1760067381479 (1).jpg"
+												},
+												{
+													"key": "data",
+													"value": "{\"ten_phim\":\"Phim Mẫu Cơ Bản\",\"trailer\":\"https://example.com/trailer-basic\",\"mo_ta\":\"Mô tả ngắn gọn về một bộ phim giả định.\",\"ngay_khoi_chieu\":\"2025-11-15\",\"danh_gia\":7,\"hot\":false,\"dang_chieu\":true,\"sap_chieu\":false}",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{capstone}}QuanLyPhim/ThemPhimUploadHinh",
+											"host": [
+												"{{capstone}}QuanLyPhim"
+											],
+											"path": [
+												"ThemPhimUploadHinh"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "645"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"285-3ND6P8DPH2R3jgbgeqEQHhbiiCA\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 29 Oct 2025 10:37:49 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 201,\n    \"message\": \"Xử lý thành công!\",\n    \"content\": {\n        \"message\": \"Movie added successfully\",\n        \"data\": {\n            \"ma_phim\": 41,\n            \"ten_phim\": \"Phim Mẫu Cơ Bản\",\n            \"trailer\": \"https://example.com/trailer-basic\",\n            \"hinh_anh\": \"https://res.cloudinary.com/da6gnhwrc/image/upload/v1761734269/img_movie/sfiblaklnxslahjpnixn.jpg\",\n            \"mo_ta\": \"Mô tả ngắn gọn về một bộ phim giả định.\",\n            \"ngay_khoi_chieu\": \"2025-11-15T00:00:00.000Z\",\n            \"danh_gia\": 7,\n            \"hot\": false,\n            \"dang_chieu\": true,\n            \"sap_chieu\": false,\n            \"createdAt\": \"2025-10-29T10:37:49.000Z\",\n            \"updatedAt\": \"2025-10-29T10:37:49.000Z\",\n            \"deletedAt\": null\n        }\n    },\n    \"dateTime\": \"2025-10-29T10:37:49.120Z\",\n    \"messageConstants\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "update-movie",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "hinh_anh",
+											"type": "file",
+											"src": "/C:/Users/LENOVO/OneDrive/Hình ảnh/express.png"
+										},
+										{
+											"key": "data",
+											"value": "{\"ma_phim\":44,\"ten_phim\":\"Phim Cập Nhật-test2-test\",\"ngay_khoi_chieu\":\"2025-11-01\",\"hot\":false}",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{capstone}}QuanLyPhim/CapNhatPhimUpload",
+									"host": [
+										"{{capstone}}QuanLyPhim"
+									],
+									"path": [
+										"CapNhatPhimUpload"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "hinh_anh",
+													"type": "file",
+													"src": "/C:/Users/LENOVO/OneDrive/Hình ảnh/good-boy-500_1760588673601.jpg"
+												},
+												{
+													"key": "data",
+													"value": "{\"ma_phim\":41,\"ten_phim\":\"Phim Cập Nhật\",\"ngay_khoi_chieu\":\"2025-11-01\",\"hot\":true}",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{capstone}}QuanLyPhim/CapNhatPhimUpload",
+											"host": [
+												"{{capstone}}QuanLyPhim"
+											],
+											"path": [
+												"CapNhatPhimUpload"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "643"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"283-tzCZKHluhPVsIukjYYMJoWTeHp8\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 29 Oct 2025 10:55:06 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 201,\n    \"message\": \"Xử lý thành công!\",\n    \"content\": {\n        \"message\": \"Movie updated successfully\",\n        \"data\": {\n            \"ma_phim\": 41,\n            \"ten_phim\": \"Phim Cập Nhật\",\n            \"trailer\": \"https://example.com/trailer-basic\",\n            \"hinh_anh\": \"https://res.cloudinary.com/da6gnhwrc/image/upload/v1761735306/img_movie/avqgjtg4ukspbr8q2gdo.jpg\",\n            \"mo_ta\": \"Mô tả ngắn gọn về một bộ phim giả định.\",\n            \"ngay_khoi_chieu\": \"2025-11-01T00:00:00.000Z\",\n            \"danh_gia\": 7,\n            \"hot\": true,\n            \"dang_chieu\": true,\n            \"sap_chieu\": false,\n            \"createdAt\": \"2025-10-29T10:37:49.000Z\",\n            \"updatedAt\": \"2025-10-29T10:55:06.000Z\",\n            \"deletedAt\": null\n        }\n    },\n    \"dateTime\": \"2025-10-29T10:55:06.351Z\",\n    \"messageConstants\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"ma_phim\": 44}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{capstone}}QuanLyPhim/XoaPhim",
+									"host": [
+										"{{capstone}}QuanLyPhim"
+									],
+									"path": [
+										"XoaPhim"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "booking",
+					"item": [
+						{
+							"name": "create-showtime",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"ma_rap\": 3,\r\n  \"ma_phim\": 24,\r\n  \"ngay_gio_chieu\": \"2025-12-10T18:00:00Z\",\r\n  \"gia_ve\": 300000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{capstone}}QuanLyDatVe/TaoLichChieu",
+									"host": [
+										"{{capstone}}QuanLyDatVe"
+									],
+									"path": [
+										"TaoLichChieu"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK1",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"ma_rap\": 1,\r\n  \"ma_phim\": 21,\r\n  \"ngay_gio_chieu\": \"2025-11-01T18:00:00Z\",\r\n  \"gia_ve\": 100000\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{capstone}}QuanLyDatVe/TaoLichChieu",
+											"host": [
+												"{{capstone}}QuanLyDatVe"
+											],
+											"path": [
+												"TaoLichChieu"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "376"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"178-Q7A+iom6CuS8w3tZ/GILZvyUADA\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 29 Oct 2025 11:57:30 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 201,\n    \"message\": \"Xử lý thành công!\",\n    \"content\": {\n        \"message\": \"LichChieu created successfully\",\n        \"data\": {\n            \"ma_lich_chieu\": 1,\n            \"ma_rap\": 1,\n            \"ma_phim\": 21,\n            \"ngay_gio_chieu\": \"2025-11-01T18:00:00.000Z\",\n            \"gia_ve\": 100000,\n            \"createdAt\": \"2025-10-29T11:57:30.000Z\",\n            \"updatedAt\": \"2025-10-29T11:57:30.000Z\",\n            \"deletedAt\": null\n        }\n    },\n    \"dateTime\": \"2025-10-29T11:57:30.005Z\",\n    \"messageConstants\": null\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "sys",
+			"item": [
+				{
+					"name": "upload-img-cloud",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "hinh_anh",
+									"type": "file",
+									"src": "/C:/Users/LENOVO/OneDrive/Hình ảnh/good-boy-500_1760588673601.jpg"
+								},
+								{
+									"key": "description",
+									"value": "demo upload",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{capstone}}cloudinary/upload-test",
+							"host": [
+								"{{capstone}}cloudinary"
+							],
+							"path": [
+								"upload-test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-img-cloud",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"imageUrl\":\"https://res.cloudinary.com/da6gnhwrc/image/upload/v1761896603/img_movie/xubjkygf2pqfet47zwag.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{capstone}}cloudinary/delete-test",
+							"host": [
+								"{{capstone}}cloudinary"
+							],
+							"path": [
+								"delete-test"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
