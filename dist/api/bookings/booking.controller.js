@@ -14,7 +14,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BookingsController = void 0;
 const common_1 = require("@nestjs/common");
-const jwt_auth_guard_1 = require("../../shared/guards/auth/jwt-auth.guard"); // Import guard để sử dụng
+const jwt_auth_guard_1 = require("../../shared/guards/auth/jwt-auth.guard");
 const booking_service_1 = require("./booking.service");
 const create_booking_dto_1 = require("./dto/create-booking.dto");
 const swagger_1 = require("@nestjs/swagger");
@@ -23,24 +23,8 @@ let BookingsController = class BookingsController {
     constructor(bookingsService) {
         this.bookingsService = bookingsService;
     }
-    // @Post('LayThongTinLichChieuHeThongRap')
-    // async getShowtimes(
-    //   @Query('ma_phim') ma_phim?: string,
-    //   @Query('ma_rap') ma_rap?: string,
-    // ) {
-    //   const ma_phim_num = ma_phim ? parseInt(ma_phim) : undefined;
-    //   const ma_rap_num = ma_rap ? parseInt(ma_rap) : undefined;
-    //   const showtimes = await this.bookingsService.getShowtimes(
-    //     ma_phim_num,
-    //     ma_rap_num,
-    //   );
-    //   return {
-    //     message: 'Showtimes retrieved successfully',
-    //     data: showtimes,
-    //   };
-    // }
     async createBooking(createBookingDto, req) {
-        const tai_khoan = req.user.userId; // Sửa thành userId, dựa trên object từ JwtStrategy
+        const tai_khoan = req.user.userId;
         if (!tai_khoan) {
             throw new common_1.UnauthorizedException('Không thể xác định tài khoản người dùng');
         }
@@ -50,16 +34,6 @@ let BookingsController = class BookingsController {
             data: booking,
         };
     }
-    // @Get('showtimes/:ma_lich_chieu')
-    // async getShowtimeById(
-    //   @Param('ma_lich_chieu', ParseIntPipe) ma_lich_chieu: number,
-    // ) {
-    //   const showtime = await this.bookingsService.getShowtimeById(ma_lich_chieu);
-    //   return {
-    //     message: 'Showtime retrieved successfully',
-    //     data: showtime,
-    //   };
-    // }
     async getRoomSeats(maLichChieu) {
         const roomSeats = await this.bookingsService.getRoomSeats(maLichChieu);
         return {
@@ -72,8 +46,7 @@ let BookingsController = class BookingsController {
 exports.BookingsController = BookingsController;
 __decorate([
     (0, common_1.Post)('DatVe'),
-    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard) // Thêm guard để yêu cầu xác thực JWT
-    ,
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),

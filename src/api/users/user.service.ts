@@ -220,7 +220,7 @@ export class UsersService {
     };
 
     return {
-      message: 'Đăng nhập thành công',
+      message: 'Xác thực thành công',
       data: {
         user: userResponse,
         accessToken,
@@ -341,7 +341,6 @@ export class UsersService {
         ho_ten: updateUserDto.ho_ten ?? existingUser.ho_ten,
         email: updateUserDto.email ?? existingUser.email,
         so_dt: updateUserDto.so_dt ?? existingUser.so_dt,
-        // Không cập nhật loai_nguoi_dung hoặc mat_khau ở đây
       },
       select: {
         tai_khoan: true,

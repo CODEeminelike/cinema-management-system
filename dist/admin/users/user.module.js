@@ -7,12 +7,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsersModule = void 0;
-// src/admin/users/users.module.ts
 const common_1 = require("@nestjs/common");
 const user_service_1 = require("./user.service");
-const prisma_module_1 = require("../../sys/prisma/prisma.module"); // Import từ sys/prisma
-const guard_module_1 = require("../../shared/guards/guard.module"); // Để sử dụng guards
-const token_module_1 = require("../../sys/token/token.module"); // ← SỬA THÀNH ../../
+const prisma_module_1 = require("../../sys/prisma/prisma.module");
+const guard_module_1 = require("../../shared/guards/guard.module");
+const token_module_1 = require("../../sys/token/token.module");
 const user_controller_1 = require("./user.controller");
 let UsersModule = class UsersModule {
 };

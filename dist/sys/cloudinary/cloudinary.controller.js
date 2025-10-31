@@ -29,20 +29,20 @@ let CloudinaryController = class CloudinaryController {
             tags: ['test-upload'],
         });
         return {
-            message: 'Upload successful',
+            message: 'Tải lên thành công',
             url: imageUrl,
-            description: description || 'No description provided',
+            description: description || 'Không có mô tả được cung cấp',
             originalName: image.originalname,
             size: image.size,
         };
     }
     async deleteTest(imageUrl) {
         if (!imageUrl) {
-            throw new common_1.BadRequestException('Image URL is required');
+            throw new common_1.BadRequestException('URL hình ảnh là bắt buộc');
         }
         const result = await this.cloudinaryService.deleteImageByUrl(imageUrl);
         return {
-            message: 'Image deleted successfully',
+            message: 'Đã xóa hình ảnh thành công',
             deleted: result,
         };
     }

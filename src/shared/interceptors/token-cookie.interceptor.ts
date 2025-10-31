@@ -1,4 +1,3 @@
-// src/shared/interceptors/token-cookie.interceptor.ts
 import {
   Injectable,
   NestInterceptor,

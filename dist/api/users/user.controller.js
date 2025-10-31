@@ -54,6 +54,7 @@ let UsersController = class UsersController {
 };
 exports.UsersController = UsersController;
 __decorate([
+    (0, common_1.UseInterceptors)(token_cookie_interceptor_1.TokenCookieInterceptor),
     (0, common_1.Post)('DangKy'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),

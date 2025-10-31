@@ -45,8 +45,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], TheaterController.prototype, "getCinemaSystems", null);
 __decorate([
-    (0, common_1.Get)('LayThongTinCumRapTheoHeThong/:maHeThong') // Đổi thành GET với path param
-    ,
+    (0, common_1.Get)('LayThongTinCumRapTheoHeThong/:maHeThong'),
     __param(0, (0, common_1.Param)('maHeThong')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
@@ -54,6 +53,7 @@ __decorate([
 ], TheaterController.prototype, "getCinemaClustersBySystem", null);
 __decorate([
     (0, common_1.Post)(['LayThongTinLichChieuHeThongRap', 'LayThongTinLichChieuPhim']),
+    (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Query)('ma_phim')),
     __param(1, (0, common_1.Query)('ma_rap')),
     __metadata("design:type", Function),

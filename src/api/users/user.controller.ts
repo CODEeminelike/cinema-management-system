@@ -25,6 +25,7 @@ import { TokenCookieInterceptor } from '../../shared/interceptors/token-cookie.i
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
+  @UseInterceptors(TokenCookieInterceptor)
   @Post('DangKy')
   async register(@Body() userDto: CreateUserDto) {
     return await this.usersService.register(userDto);

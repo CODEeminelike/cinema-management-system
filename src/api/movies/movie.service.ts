@@ -46,7 +46,7 @@ export class MovieService {
   async getMovieList(dto: GetMovieListDto = {}): Promise<MovieResponse[]> {
     const { tenPhim } = dto;
 
-    // Xây dựng where clause động
+    //  where clause động
     const where: any = { deletedAt: null };
 
     if (tenPhim) {
@@ -94,7 +94,7 @@ export class MovieService {
 
     if (page < 1 || limit < 1 || limit > 100) {
       throw new BadRequestException(
-        'Invalid pagination parameters: page must be >= 1, limit must be between 1 and 100',
+        'Tham số phân trang không hợp lệ: trang phải >= 1, giới hạn phải nằm trong khoảng từ 1 đến 100',
       );
     }
 
@@ -214,7 +214,7 @@ export class MovieService {
 
     if (page < 1 || limit < 1 || limit > 100) {
       throw new BadRequestException(
-        'Invalid pagination parameters: page must be >= 1, limit must be between 1 and 100',
+        'Tham số phân trang không hợp lệ: trang phải >= 1, giới hạn phải nằm trong khoảng từ 1 đến 100',
       );
     }
 

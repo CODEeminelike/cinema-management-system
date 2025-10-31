@@ -25,10 +25,12 @@ export class CloudinaryService {
         },
         (error, result) => {
           if (error) {
-            reject(new Error(`Upload to Cloudinary failed: ${error.message}`));
+            reject(new Error(`Tải lên Cloudinary thất bại: ${error.message}`));
           } else if (!result) {
             reject(
-              new Error('Upload to Cloudinary failed: No result returned'),
+              new Error(
+                'Tải lên Cloudinary thất bại: Không có kết quả nào được trả về',
+              ),
             );
           } else {
             resolve(result.secure_url);
@@ -45,7 +47,7 @@ export class CloudinaryService {
       const result: any = await cloudinary.uploader.destroy(publicId);
       return result.result === 'ok';
     } catch (error: any) {
-      throw new Error(`Delete from Cloudinary failed: ${error.message}`);
+      throw new Error(`Xóa từ Cloudinary thất bại: ${error.message}`);
     }
   }
 
@@ -54,7 +56,7 @@ export class CloudinaryService {
       const publicId = this.extractPublicIdFromUrl(imageUrl);
       return await this.deleteImage(publicId);
     } catch (error: any) {
-      throw new Error(`Delete from Cloudinary failed: ${error.message}`);
+      throw new Error(`Xóa từ Cloudinary thất bại: ${error.message}`);
     }
   }
 
@@ -64,7 +66,7 @@ export class CloudinaryService {
     );
 
     if (!matches || matches.length < 2) {
-      throw new Error('Invalid Cloudinary URL');
+      throw new Error('URL Cloudinary không hợp lệ');
     }
 
     return matches[1].replace(/\.[^/.]+$/, '');

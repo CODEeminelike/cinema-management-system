@@ -12,94 +12,6 @@ import { CreateBookingDto } from './dto/create-booking.dto';
 export class BookingsService {
   constructor(private prisma: PrismaService) {}
 
-  // async getShowtimes(ma_phim?: number, ma_rap?: number) {
-  //   const where: any = {};
-
-  //   if (ma_phim) {
-  //     where.ma_phim = ma_phim;
-  //   }
-
-  //   if (ma_rap) {
-  //     where.ma_rap = ma_rap;
-  //   }
-
-  //   const showtimes = await this.prisma.lichChieu.findMany({
-  //     where: {
-  //       ...where,
-  //       deletedAt: null, // Bổ sung lọc soft delete để cải thiện
-  //     },
-  //     include: {
-  //       Phim: {
-  //         select: {
-  //           ten_phim: true,
-  //           hinh_anh: true,
-  //         },
-  //       },
-  //       RapPhim: {
-  //         include: {
-  //           CumRap: {
-  //             include: {
-  //               HeThongRap: {
-  //                 select: {
-  //                   ten_he_thong_rap: true,
-  //                 },
-  //               },
-  //             },
-  //           },
-  //         },
-  //       },
-  //     },
-  //     orderBy: {
-  //       ngay_gio_chieu: 'asc',
-  //     },
-  //   });
-
-  //   return showtimes;
-  // }
-
-  // async getShowtimeById(ma_lich_chieu: number) {
-  //   const showtime = await this.prisma.lichChieu.findUnique({
-  //     where: {
-  //       ma_lich_chieu,
-  //       deletedAt: null, // Bổ sung lọc soft delete để cải thiện
-  //     },
-  //     include: {
-  //       Phim: true,
-  //       RapPhim: {
-  //         include: {
-  //           CumRap: {
-  //             include: {
-  //               HeThongRap: true,
-  //             },
-  //           },
-  //           Ghe: {
-  //             where: {
-  //               deletedAt: null,
-  //             },
-  //           },
-  //         },
-  //       },
-  //       DatVe: {
-  //         include: {
-  //           Ghe: true,
-  //           NguoiDung: {
-  //             select: {
-  //               ho_ten: true,
-  //               email: true,
-  //             },
-  //           },
-  //         },
-  //       },
-  //     },
-  //   });
-
-  //   if (!showtime) {
-  //     throw new NotFoundException('Showtime not found');
-  //   }
-
-  //   return showtime;
-  // }
-
   async createBooking(tai_khoan: number, createBookingDto: CreateBookingDto) {
     const { ma_lich_chieu, danh_sach_ma_ghe } = createBookingDto;
 
@@ -234,8 +146,8 @@ export class BookingsService {
       maRap: ghe.ma_rap,
       loaiGhe:
         ghe.loai_ghe.charAt(0).toUpperCase() +
-        ghe.loai_ghe.slice(1).toLowerCase(), // Map "thuong" thành "Thuong"
-      stt: ghe.ten_ghe.padStart(2, '0'), // Giả sử stt là ten_ghe với padding
+        ghe.loai_ghe.slice(1).toLowerCase(),
+      stt: ghe.ten_ghe.padStart(2, '0'),
       giaVe: lichChieu.gia_ve,
       daDat: datVeMap.has(ghe.ma_ghe),
       taiKhoanNguoiDat: datVeMap.get(ghe.ma_ghe) || null,

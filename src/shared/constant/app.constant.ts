@@ -1,11 +1,10 @@
-// src/shared/constants/app.constant.ts
 import * as dotenv from 'dotenv';
 dotenv.config();
 
 export const APP_CONSTANTS = {
   PORT: 3333,
   API_PREFIX: '/api',
- SUB_ROUTES: {
+  SUB_ROUTES: {
     RAP: 'QuanLyRap',
     DAT_VE: 'QuanLyDatVe',
     PHIM: 'QuanLyPhim',
@@ -15,8 +14,6 @@ export const APP_CONSTANTS = {
     ADMIN: 'ADMIN',
     USER: 'USER',
   },
-
-
-}as const;
+} as const;
 
 //console.log(APP_CONSTANTS);

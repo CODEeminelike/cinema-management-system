@@ -33,10 +33,10 @@ let CloudinaryService = class CloudinaryService {
                 ...options,
             }, (error, result) => {
                 if (error) {
-                    reject(new Error(`Upload to Cloudinary failed: ${error.message}`));
+                    reject(new Error(`Tải lên Cloudinary thất bại: ${error.message}`));
                 }
                 else if (!result) {
-                    reject(new Error('Upload to Cloudinary failed: No result returned'));
+                    reject(new Error('Tải lên Cloudinary thất bại: Không có kết quả nào được trả về'));
                 }
                 else {
                     resolve(result.secure_url);
@@ -51,7 +51,7 @@ let CloudinaryService = class CloudinaryService {
             return result.result === 'ok';
         }
         catch (error) {
-            throw new Error(`Delete from Cloudinary failed: ${error.message}`);
+            throw new Error(`Xóa từ Cloudinary thất bại: ${error.message}`);
         }
     }
     async deleteImageByUrl(imageUrl) {
@@ -60,13 +60,13 @@ let CloudinaryService = class CloudinaryService {
             return await this.deleteImage(publicId);
         }
         catch (error) {
-            throw new Error(`Delete from Cloudinary failed: ${error.message}`);
+            throw new Error(`Xóa từ Cloudinary thất bại: ${error.message}`);
         }
     }
     extractPublicIdFromUrl(url) {
         const matches = url.match(/\/upload\/(?:v\d+\/)?(.+)\.(?:jpg|jpeg|png|gif|webp)/i);
         if (!matches || matches.length < 2) {
-            throw new Error('Invalid Cloudinary URL');
+            throw new Error('URL Cloudinary không hợp lệ');
         }
         return matches[1].replace(/\.[^/.]+$/, '');
     }

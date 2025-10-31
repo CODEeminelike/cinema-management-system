@@ -25,7 +25,7 @@ let JwtStrategy = JwtStrategy_1 = class JwtStrategy extends (0, passport_1.Passp
         // Lấy JWT_SECRET và kiểm tra
         const jwtSecret = configService.get('JWT_SECRET');
         if (!jwtSecret) {
-            throw new Error('JWT_SECRET is not defined in environment variables');
+            throw new Error('Biến môi trường JWT_SECRET chưa được định nghĩa');
         }
         super({
             jwtFromRequest: passport_jwt_1.ExtractJwt.fromAuthHeaderAsBearerToken(), // Lấy token từ header Authorization: Bearer <token>

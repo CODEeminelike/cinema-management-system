@@ -21,7 +21,7 @@ let MovieService = MovieService_1 = class MovieService {
     }
     async getMovieList(dto = {}) {
         const { tenPhim } = dto;
-        // Xây dựng where clause động
+        //  where clause động
         const where = { deletedAt: null };
         if (tenPhim) {
             where.ten_phim = {
@@ -59,7 +59,7 @@ let MovieService = MovieService_1 = class MovieService {
     async getMovieListFiltered(dto) {
         const { page = 1, limit = 10, tenPhim, dangChieu, sapChieu, hot } = dto;
         if (page < 1 || limit < 1 || limit > 100) {
-            throw new common_1.BadRequestException('Invalid pagination parameters: page must be >= 1, limit must be between 1 and 100');
+            throw new common_1.BadRequestException('Tham số phân trang không hợp lệ: trang phải >= 1, giới hạn phải nằm trong khoảng từ 1 đến 100');
         }
         const skip = (page - 1) * limit;
         // Xây dựng where clause động
@@ -154,7 +154,7 @@ let MovieService = MovieService_1 = class MovieService {
     async getMovieListByDate(dto) {
         const { tuNgay, denNgay, page = 1, limit = 10 } = dto;
         if (page < 1 || limit < 1 || limit > 100) {
-            throw new common_1.BadRequestException('Invalid pagination parameters: page must be >= 1, limit must be between 1 and 100');
+            throw new common_1.BadRequestException('Tham số phân trang không hợp lệ: trang phải >= 1, giới hạn phải nằm trong khoảng từ 1 đến 100');
         }
         // Parse ngày nếu có (từ string ISO sang Date)
         let startDate;

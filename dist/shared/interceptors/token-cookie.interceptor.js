@@ -7,7 +7,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TokenCookieInterceptor = void 0;
-// src/shared/interceptors/token-cookie.interceptor.ts
 const common_1 = require("@nestjs/common");
 const operators_1 = require("rxjs/operators");
 let TokenCookieInterceptor = class TokenCookieInterceptor {

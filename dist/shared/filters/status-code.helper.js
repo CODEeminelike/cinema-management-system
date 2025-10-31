@@ -82,7 +82,7 @@ exports.statusMessages = {
     400: 'Bad Request',
     401: 'Unauthorized',
     402: 'Payment Required',
-    403: 'Không đủ quyền truy cập!', // Chuẩn RESTful theo mẫu
+    403: 'Không đủ quyền truy cập!',
     404: 'Not Found',
     405: 'Method Not Allowed',
     406: 'Not Acceptable',

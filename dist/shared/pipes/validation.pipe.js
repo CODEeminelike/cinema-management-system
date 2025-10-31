@@ -12,7 +12,7 @@ const class_transformer_1 = require("class-transformer");
 const class_validator_1 = require("class-validator");
 let CustomValidationPipe = class CustomValidationPipe {
     async transform(value, metadata) {
-        const { metatype } = metadata; // Lấy loại DTO từ decorator (ví dụ: UpdateUserDto)
+        const { metatype } = metadata; // Lấy loại DTO từ decorator
         if (!metatype || !this.toValidate(metatype)) {
             return value; // Không validate nếu không phải class
         }

@@ -44,7 +44,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var UsersService_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsersService = void 0;
-// src/admin/users/user.service.ts
 const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../../sys/prisma/prisma.service");
 const token_service_1 = require("../../sys/token/token.service");

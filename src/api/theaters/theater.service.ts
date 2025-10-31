@@ -42,7 +42,7 @@ export class TheaterService {
       });
 
       if (systems.length === 0) {
-        throw new NotFoundException('No cinema systems found');
+        throw new NotFoundException('Không tìm thấy hệ thống rạp');
       }
 
       this.logger.log(

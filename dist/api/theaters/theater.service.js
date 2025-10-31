@@ -32,7 +32,7 @@ let TheaterService = TheaterService_1 = class TheaterService {
                 },
             });
             if (systems.length === 0) {
-                throw new common_1.NotFoundException('No cinema systems found');
+                throw new common_1.NotFoundException('Không tìm thấy hệ thống rạp');
             }
             this.logger.log(`Retrieved cinema systems successfully: ${systems.length} results`);
             return systems;

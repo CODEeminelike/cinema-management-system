@@ -10,7 +10,7 @@ import { validate } from 'class-validator';
 @Injectable()
 export class CustomValidationPipe implements PipeTransform {
   async transform(value: any, metadata: ArgumentMetadata) {
-    const { metatype } = metadata; // Lấy loại DTO từ decorator (ví dụ: UpdateUserDto)
+    const { metatype } = metadata; // Lấy loại DTO từ decorator
     if (!metatype || !this.toValidate(metatype)) {
       return value; // Không validate nếu không phải class
     }

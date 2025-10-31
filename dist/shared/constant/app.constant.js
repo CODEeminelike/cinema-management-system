@@ -34,7 +34,6 @@ var __importStar = (this && this.__importStar) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.APP_CONSTANTS = void 0;
-// src/shared/constants/app.constant.ts
 const dotenv = __importStar(require("dotenv"));
 dotenv.config();
 exports.APP_CONSTANTS = {
